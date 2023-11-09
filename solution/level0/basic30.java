@@ -1,6 +1,7 @@
 package level0;
 
 public class basic30 {
+
     public int solution(int price) {
         int answer = 0;
         if (price >= 500000) {
