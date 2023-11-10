@@ -1,6 +1,5 @@
 package level0.play;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class TeamManagement {
@@ -84,9 +83,6 @@ public class TeamManagement {
         String searchModifyPlayerName;
         System.out.println("수정할 선수의 이름을 입력해주세요.");
         searchModifyPlayerName = scanner.next();
-        String modifyPlayerName;
-        String modifyPlayerPosition;
-        int modifyPlayerAge;
 
         for (int i = 0; i < playerName.length; i++) {
             if (playerName[i].equals(searchModifyPlayerName)) {
@@ -94,23 +90,8 @@ public class TeamManagement {
                 System.out.println("1.이름 2.포지션 3.나이");
                 int selectModifyNum = scanner.nextInt();
 
-                switch (selectModifyNum) {
-                    case 1:
-                        System.out.println("수정할 이름을 입력해주세요.");
-                        modifyPlayerName = scanner.next();
-                        playerName[i] = modifyPlayerName;
-                        break;
-                    case 2:
-                        System.out.println("수정할 포지션을 입력해주세요.");
-                        modifyPlayerPosition = scanner.next();
-                        playerPosition[i] = modifyPlayerPosition;
-                        break;
-                    case 3:
-                        System.out.println("수정할 나이를 입력해주세요.");
-                        modifyPlayerAge = scanner.nextInt();
-                        playerAge[i] = modifyPlayerAge;
-                        break;
-                }
+                selectModifyPositionNum(selectModifyNum, i);
+
                 System.out.println("정보가 수정되었습니다.");
                 System.out.println();
                 return;
@@ -118,6 +99,31 @@ public class TeamManagement {
         }
         System.out.println("검색된 선수가 존재하지 않거나 선수의 이름을 다시 확인해주세요.");
         System.out.println();
+    }
+
+    private void selectModifyPositionNum(int selectModifyNum, int index) {
+
+        String modifyPlayerName;
+        String modifyPlayerPosition;
+        int modifyPlayerAge;
+
+        switch (selectModifyNum) {
+            case 1:
+                System.out.println("수정할 이름을 입력해주세요.");
+                modifyPlayerName = scanner.next();
+                playerName[index] = modifyPlayerName;
+                break;
+            case 2:
+                System.out.println("수정할 포지션을 입력해주세요.");
+                modifyPlayerPosition = scanner.next();
+                playerPosition[index] = modifyPlayerPosition;
+                break;
+            case 3:
+                System.out.println("수정할 나이를 입력해주세요.");
+                modifyPlayerAge = scanner.nextInt();
+                playerAge[index] = modifyPlayerAge;
+                break;
+        }
     }
 
 
@@ -157,42 +163,53 @@ public class TeamManagement {
 //                System.out.println(Arrays.toString(playerPosition));
 //                System.out.println(Arrays.toString(playerAge));
 
-                System.out.println(deletePlayerName + "선수가 삭제되었습니다.");
+                System.out.println(deletePlayerName + " 선수가 삭제되었습니다.");
                 System.out.println();
                 return;
             }
         }
     }
 
+    private void startTeamManagement() {
+        System.out.println("환영합니다. JavaFC 입니다.");
+
+        boolean flag = true;
+
+        while (flag) {
+            System.out.println("원하시는 서비스의 번호를 입력해주세요.");
+            System.out.println("1.선수 조회 2.선수 추가 3.선수 정보 수정 4.선수 삭제 5.서비스 종료");
+            int selectServiceNum = scanner.nextInt();
+
+            flag = selectMenuServiceNum(selectServiceNum);
+
+        }
+    }
+
+    private boolean selectMenuServiceNum(int selectServiceNum) {
+        switch (selectServiceNum) {
+            case 1:
+                showPlayerInfo();
+                break;
+            case 2:
+                addPlayer();
+                break;
+            case 3:
+                modifyPlayerInfo();
+                break;
+            case 4:
+                deletePlayerInfo();
+                break;
+            case 5:
+                return false;
+        }
+        return true;
+    }
 
     public static void main(String[] args) {
 
         TeamManagement teamManagement = new TeamManagement();
 
-        System.out.println("환영합니다. JavaFC 입니다.");
+        teamManagement.startTeamManagement();
 
-        checkpoint:
-        while (true) {
-            System.out.println("원하시는 서비스의 번호를 입력해주세요.");
-            System.out.println("1.선수 조회 2.선수 추가 3.선수 정보 수정 4.선수 삭제 5.서비스 종료");
-            int selectServiceNum = scanner.nextInt();
-
-            switch (selectServiceNum) {
-                case 1:
-                    teamManagement.showPlayerInfo();
-                    break;
-                case 2:
-                    teamManagement.addPlayer();
-                    break;
-                case 3:
-                    teamManagement.modifyPlayerInfo();
-                    break;
-                case 4:
-                    teamManagement.deletePlayerInfo();
-                    break;
-                case 5:
-                    break checkpoint;
-            }
-        }
     }
 }
