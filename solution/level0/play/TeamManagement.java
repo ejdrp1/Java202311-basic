@@ -79,18 +79,44 @@ public class TeamManagement {
     }
 
 
+    private void modifyPlayerInfo() {
+        String searchModifyPlayerName;
+        System.out.println("수정할 선수의 이름을 입력해주세요.");
+        searchModifyPlayerName = scanner.next();
+        String modifyPlayerName;
+        String modifyPlayerPosition;
+        int modifyPlayerAge;
 
+        for (int i = 0; i < playerName.length; i++) {
+            if (playerName[i].equals(searchModifyPlayerName)) {
+                System.out.println("수정할 정보를 선택해주세요.");
+                System.out.println("1.이름 2.포지션 3.나이");
+                int selectModifyNum = scanner.nextInt();
 
-
-
-
-
-
-
-
-
-
-
+                switch (selectModifyNum) {
+                    case 1:
+                        System.out.println("수정할 이름을 입력해주세요.");
+                        modifyPlayerName = scanner.next();
+                        playerName[i] = modifyPlayerName;
+                        break;
+                    case 2:
+                        System.out.println("수정할 포지션을 입력해주세요.");
+                        modifyPlayerPosition = scanner.next();
+                        playerPosition[i] = modifyPlayerPosition;
+                        break;
+                    case 3:
+                        System.out.println("수정할 나이를 입력해주세요.");
+                        modifyPlayerAge = scanner.nextInt();
+                        playerAge[i] = modifyPlayerAge;
+                        break;
+                }
+                System.out.println("정보가 수정되었습니다.");
+                System.out.println();
+                return;
+            }
+        }
+        System.out.println("검색된 선수가 존재하지 않거나 선수의 이름을 다시 확인해주세요.");
+    }
 
 
     public static void main(String[] args) {
@@ -99,23 +125,27 @@ public class TeamManagement {
 
         System.out.println("환영합니다. JavaFC 입니다.");
 
-        checkpoint: while (true) {
+        checkpoint:
+        while (true) {
             System.out.println("원하시는 서비스의 번호를 입력해주세요.");
             System.out.println("1.선수 조회 2.선수 추가 3.선수 정보 수정 4.선수 삭제 5.서비스 종료");
             int selectServiceNum = scanner.nextInt();
 
             switch (selectServiceNum) {
-                case 1: teamManagement.showPlayerInfo(); break;
-                case 2: teamManagement.addPlayer(); break;
-                case 3: break;
-                case 4: break;
-                case 5: break checkpoint;
+                case 1:
+                    teamManagement.showPlayerInfo();
+                    break;
+                case 2:
+                    teamManagement.addPlayer();
+                    break;
+                case 3:
+                    teamManagement.modifyPlayerInfo();
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break checkpoint;
             }
         }
-
-
-
-
     }
-
 }
