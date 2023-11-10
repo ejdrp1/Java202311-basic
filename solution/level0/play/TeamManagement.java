@@ -24,7 +24,6 @@ public class TeamManagement {
         String newPlayerName = scanner.next();
         System.out.println("추가된 선수의 포지션을 입력해주세요.");
         String newPlayerPosition = scanner.next();
-        ;
         System.out.println("추가된 선수의 나이를 입력해주세요.");
         int newPlayerAge = scanner.nextInt();
 
