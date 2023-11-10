@@ -76,6 +76,7 @@ public class TeamManagement {
         }
 
         System.out.println("입력하신 선수가 존재하지 않습니다.");
+        System.out.println();
     }
 
 
@@ -116,6 +117,51 @@ public class TeamManagement {
             }
         }
         System.out.println("검색된 선수가 존재하지 않거나 선수의 이름을 다시 확인해주세요.");
+        System.out.println();
+    }
+
+
+    private void deletePlayerInfo() {
+
+        String[] copyDeletePlayerName = new String[playerName.length - 1];
+        String[] copyDeletePlayerPosition = new String[playerPosition.length - 1];
+        int[] copyDeletePlayerAge = new int[playerAge.length - 1];
+        String deletePlayerName;
+
+        System.out.println("삭제할 선수의 이름을 입력해주세요.");
+        deletePlayerName = scanner.next();
+
+        for (int i = 0; i < playerName.length; i++) {
+            if (playerName[i].equals(deletePlayerName)) {
+
+                for (int j = 0; j < copyDeletePlayerName.length; j++) {
+                    if (j < i) {
+                        copyDeletePlayerName[j] = playerName[j];
+                        copyDeletePlayerPosition[j] = playerPosition[j];
+                        copyDeletePlayerAge[j] = playerAge[j];
+                    } else {
+                        copyDeletePlayerName[j] = playerName[j + 1];
+                        copyDeletePlayerPosition[j] = playerPosition[j + 1];
+                        copyDeletePlayerAge[j] = playerAge[j + 1];
+                    }
+                }
+                playerName = copyDeletePlayerName;
+                playerPosition = copyDeletePlayerPosition;
+                playerAge = copyDeletePlayerAge;
+
+                copyDeletePlayerName = null;
+                copyDeletePlayerPosition = null;
+                copyDeletePlayerAge = null;
+
+//                System.out.println(Arrays.toString(playerName));
+//                System.out.println(Arrays.toString(playerPosition));
+//                System.out.println(Arrays.toString(playerAge));
+
+                System.out.println(deletePlayerName + "선수가 삭제되었습니다.");
+                System.out.println();
+                return;
+            }
+        }
     }
 
 
@@ -142,6 +188,7 @@ public class TeamManagement {
                     teamManagement.modifyPlayerInfo();
                     break;
                 case 4:
+                    teamManagement.deletePlayerInfo();
                     break;
                 case 5:
                     break checkpoint;
