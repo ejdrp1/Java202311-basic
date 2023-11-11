@@ -1,4 +1,4 @@
-package level0.play.PositionInfoService;
+package level0.play.PositionInfoService.Model;
 
 public class GoalKeeper {
 

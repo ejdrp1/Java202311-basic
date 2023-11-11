@@ -1,16 +1,10 @@
-package level0.play.PositionInfoService;
+package level0.play.PositionInfoService.Controller;
 
 import java.util.Scanner;
 
-public class Position {
-    public static Scanner scanner = new Scanner(System.in);
+public class PositionController {
 
-    public void startPositionInfoService() {
-        System.out.println("안녕하세요. 축구 포지션 정보 서비스입니다!");
-        System.out.println("1.시작하기 2.종료하기");
-        int selectStartingNum = scanner.nextInt();
-        selectStartingNum(selectStartingNum);
-    }
+    public static Scanner scanner = new Scanner(System.in);
 
     public void selectStartingNum(int selectStartingNum) {
         if (selectStartingNum == 1) {
@@ -40,19 +34,38 @@ public class Position {
     public void selectedPositionTypeNum(int selectPositionTypeNum) {
         switch (selectPositionTypeNum) {
             case 1:
-                System.out.println("공격수입니다.");
+                selectForward();
                 break;
             case 2:
-                System.out.println("미드필더입니다.");
+                selectMidFielder();
                 break;
             case 3:
-                System.out.println("수비수입니다.");
+                selectDefender();
                 break;
             case 4:
-                System.out.println("골키퍼입니다.");
+                selectGoalKeeper();
                 break;
         }
     }
 
+//    1. 공격수
+    public void selectForward() {
+        System.out.println("공격수를 선택하셨습니다.");
+    }
+
+//    2. 미드필더
+    public void selectMidFielder() {
+        System.out.println("미드필더를 선택하셨습니다.");
+    }
+
+//    3.수비수
+    public void selectDefender() {
+        System.out.println("수비수를 선택하셨습니다.");
+    }
+
+//    4.골키퍼
+    public void selectGoalKeeper() {
+        System.out.println("골키퍼를 선택하셨습니다.");
+    }
 
 }
