@@ -1,4 +1,4 @@
-package level0.play.PositionInfoService.Controller;
+package level0.play.PositionInfoService;
 
 import level0.play.PositionInfoService.View.PositionView;
 

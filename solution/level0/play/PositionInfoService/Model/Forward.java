@@ -2,8 +2,6 @@ package level0.play.PositionInfoService.Model;
 
 public class Forward {
 
-    AbilityValue abilityValue = new AbilityValue();
-
     //    중앙
     private String poacher;
     private String targetForward;
@@ -13,10 +11,12 @@ public class Forward {
     private String pressingForward;
     private String shadowStriker;
     private String trequartista;
+
     //    측면
     private String winger;
     private String invertedWinger;
     private String insideForward;
+    AbilityValue abilityValue = new AbilityValue();
 
     public Forward() {
     }
@@ -32,7 +32,6 @@ public class Forward {
         abilityValue.shooting();
         abilityValue.judgment();
         abilityValue.skill();
-
     }
 
 }
