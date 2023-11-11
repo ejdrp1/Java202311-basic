@@ -34,38 +34,146 @@ public class PositionController {
     public void selectedPositionTypeNum(int selectPositionTypeNum) {
         switch (selectPositionTypeNum) {
             case 1:
+                System.out.println("공격수를 선택하셨습니다. 포지션 지역을 입력해주세요.");
                 selectForward();
                 break;
             case 2:
+                System.out.println("미드필더를 선택하셨습니다. 포지션 지역을 입력해주세요.");
                 selectMidFielder();
                 break;
             case 3:
+                System.out.println("수비수를 선택하셨습니다. 포지션 지역을 입력해주세요.");
                 selectDefender();
                 break;
             case 4:
+                System.out.println("골키퍼를 선택하셨습니다. 포지션 지역을 입력해주세요.");
                 selectGoalKeeper();
                 break;
         }
     }
 
-//    1. 공격수
+    //    1. 공격수
     public void selectForward() {
-        System.out.println("공격수를 선택하셨습니다.");
+        selectLocationOfMidAndSide();
+        int locationOfForwardNum = scanner.nextInt();
+        selectLocationOfForward(locationOfForwardNum);
     }
 
-//    2. 미드필더
+    //    2. 미드필더
     public void selectMidFielder() {
-        System.out.println("미드필더를 선택하셨습니다.");
+        selectLocationOfMidAndSide();
+        int locationOfMidFielderNum = scanner.nextInt();
     }
 
-//    3.수비수
+    //    3.수비수
     public void selectDefender() {
-        System.out.println("수비수를 선택하셨습니다.");
+        selectLocationOfMidAndSide();
+        int locationOfDefenderNum = scanner.nextInt();
     }
 
-//    4.골키퍼
+    //    4.골키퍼
     public void selectGoalKeeper() {
-        System.out.println("골키퍼를 선택하셨습니다.");
+    }
+
+    public void selectLocationOfMidAndSide() {
+        System.out.println("1.중앙 2.측면");
+    }
+
+    public void selectLocationOfForward(int locationOfForwardNum) {
+        if (0 < locationOfForwardNum && locationOfForwardNum < 3) {
+            switch (locationOfForwardNum) {
+                case 1:
+                    selectForwardOfMid();
+                    break;
+                case 2:
+                    selectForwardOfSide();
+                    break;
+            }
+        } else {
+            System.out.println("옳바르지 않은 번호입니다. 다시 입력해주세요");
+            selectForward();
+        }
+    }
+
+    public void selectForwardOfMid() {
+        System.out.println("중앙 지역의 포워드를 선택하셨습니다. 원하시는 포지션을 입력해주세요.");
+        System.out.println("1.포처 2.타겟형 포워드 3.딥 라잉 포워드 4.완성형 포워드 5.전진형 포워드 6.프레싱 포워드 7.트레콰르티스타");
+        int forwardOfMidNum = scanner.nextInt();
+        selectForwardOfMidNum(forwardOfMidNum);
+    }
+
+    public void selectForwardOfSide() {
+        System.out.println("측면 지역의 포워드를 선택하셨습니다. 원하시는 포지션을 입력해주세요.");
+        System.out.println("1.윙어 2.인사이드 포워드 3.인버티드 윙어");
+        int forwardOfSideNum = scanner.nextInt();
+        selectForwardOfSideNum(forwardOfSideNum);
+    }
+
+    public void selectForwardOfMidNum(int forwardOfMidNum) {
+        switch (forwardOfMidNum) {
+            case 1:
+                selectPoacher();
+                break;
+            case 2:
+                selectTargetMan();
+                break;
+            case 3:
+                selectDeepLyingForward();
+                break;
+            case 4:
+                selectCompleteForward();
+                break;
+            case 5:
+                selectAdvancedForward();
+                break;
+            case 6:
+                selectPressingForward();
+                break;
+            case 7:
+                selectTrequartista();
+                break;
+        }
+    }
+
+    public void selectPoacher() {
+        System.out.println("포처를 선택하셨습니다.");
+    }
+    public void selectTargetMan() {
+        System.out.println("타겟형 포워드를 선택하셨습니다.");
+    }
+    public void selectDeepLyingForward() {
+        System.out.println("딥 라잉 포워드를 선택하셨습니다.");
+    }
+    public void selectCompleteForward() {
+        System.out.println("완성형 포워드를 선택하셨습니다.");
+    }
+    public void selectAdvancedForward() {
+        System.out.println("전진형 포워드를 선택하셨습니다.");
+    }
+    public void selectPressingForward() {
+        System.out.println("프레싱 포워드를 선택하셨습니다.");
+    }
+    public void selectTrequartista() {
+        System.out.println("트레콰르티스타를 선택하셨습니다.");
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void selectForwardOfSideNum(int forwardOfSideNum) {
+
     }
 
 }
