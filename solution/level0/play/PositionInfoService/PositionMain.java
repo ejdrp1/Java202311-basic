@@ -6,7 +6,6 @@ public class PositionMain {
 
         Position position = new Position();
 
-
         position.startPositionInfoService();
 
     }
