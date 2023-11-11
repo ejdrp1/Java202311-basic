@@ -1,10 +1,13 @@
 package level0.play.PositionInfoService.Controller;
 
+import level0.play.PositionInfoService.Model.Forward;
+
 import java.util.Scanner;
 
 public class PositionController {
 
     public static Scanner scanner = new Scanner(System.in);
+    Forward forward = new Forward();
 
     public void selectStartingNum(int selectStartingNum) {
         if (selectStartingNum == 1) {
@@ -136,7 +139,8 @@ public class PositionController {
     }
 
     public void selectPoacher() {
-        System.out.println("포처를 선택하셨습니다.");
+        forward.poacher();
+
     }
     public void selectTargetMan() {
         System.out.println("타겟형 포워드를 선택하셨습니다.");
