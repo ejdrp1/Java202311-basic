@@ -34,4 +34,17 @@ public class PlayerSalaryView {
         int weeklyPayOfPlayer = playerSalaryController.scanner.nextInt();
         PlayerSalaryController.weeklyPayOfPlayerCalculator(weeklyPayOfPlayer);
     }
+    public void inputAnnualIncomePlayer() {
+        System.out.print("연봉 입력 : ");
+        int annualIncomeOfPlayer = playerSalaryController.scanner.nextInt();
+        PlayerSalaryController.annualIncomeOfPlayerCalculator(annualIncomeOfPlayer);
+    }
+
+    public static void resultWeeklyPayOfAnnualIncome(int resultAnnualIncome) {
+        System.out.println(resultAnnualIncome+"원");
+    }
+    public static void resultAnnualIncomeOfAnnualIncome(int resultWeeklyPay) {
+        System.out.println(resultWeeklyPay+"원");
+    }
+
 }
