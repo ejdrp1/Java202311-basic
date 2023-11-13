@@ -25,8 +25,8 @@ public class PlayerSalaryController {
         int annualIncome = weeklyPayOfPlayer * 52;
         PlayerSalaryView.resultWeeklyPayOfAnnualIncome(annualIncome);
     }
-    public static void annualIncomeOfPlayerCalculator(int annualIncomeOfPlayer) {
-        int weeklyPay = (int)(annualIncomeOfPlayer / 52);
+    public static void annualIncomeOfPlayerCalculator(long annualIncomeOfPlayer) {
+        long weeklyPay = annualIncomeOfPlayer / 52;
         PlayerSalaryView.resultAnnualIncomeOfAnnualIncome(weeklyPay);
     }
 }

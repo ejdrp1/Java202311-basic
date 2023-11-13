@@ -36,14 +36,14 @@ public class PlayerSalaryView {
     }
     public void inputAnnualIncomePlayer() {
         System.out.print("연봉 입력 : ");
-        int annualIncomeOfPlayer = playerSalaryController.scanner.nextInt();
+        long annualIncomeOfPlayer = playerSalaryController.scanner.nextLong();
         PlayerSalaryController.annualIncomeOfPlayerCalculator(annualIncomeOfPlayer);
     }
 
     public static void resultWeeklyPayOfAnnualIncome(int resultAnnualIncome) {
         System.out.println(resultAnnualIncome+"원");
     }
-    public static void resultAnnualIncomeOfAnnualIncome(int resultWeeklyPay) {
+    public static void resultAnnualIncomeOfAnnualIncome(long resultWeeklyPay) {
         System.out.println(resultWeeklyPay+"원");
     }
 
