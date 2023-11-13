@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
 
         PlayerSalaryController playerSalaryController = new PlayerSalaryController();
-        playerSalaryController.startPlayerSalaryCalCulator();
+        playerSalaryController.startPlayerSalaryCalculator();
 
     }
 }

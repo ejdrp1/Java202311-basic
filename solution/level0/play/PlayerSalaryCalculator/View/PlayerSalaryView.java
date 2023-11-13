@@ -20,4 +20,16 @@ public class PlayerSalaryView {
     public void selectWeeklyPayOfPlayer() {
         System.out.print("주급 입력 : ");
     }
+
+    public void resultWeeklyPayToAnnualIncome(String result, String playerName) {
+        System.out.println("'"+playerName+"'"+" 선수의 연봉 : "+"'" + result + "'" + "원");
+    }
+
+    public void selectAnnualIncomeOfPlayer() {
+        System.out.print("연봉 입력 : ");
+    }
+
+    public void resultAnnualIncomeToWeeklyPay(String annualIncomeCalculator, String playerName) {
+        System.out.println("'"+playerName+"'"+" 선수의 주급 : "+"'" + annualIncomeCalculator + "'" + "원");
+    }
 }
