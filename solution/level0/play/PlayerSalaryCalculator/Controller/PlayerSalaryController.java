@@ -42,12 +42,12 @@ public class PlayerSalaryController {
 
 
     private void inputWeeklyPayOfPlayer(String playerName) {
-        int weeklyPay = scanner.nextInt();
+        long weeklyPay = scanner.nextLong();
         weeklyPayToAnnualIncome(weeklyPay, playerName);
     }
 
-    private void weeklyPayToAnnualIncome(int weeklyPay, String playerName) {
-        int weeklyPayCalculator = (weeklyPay / 7) * 365;
+    private void weeklyPayToAnnualIncome(long weeklyPay, String playerName) {
+        long weeklyPayCalculator = weeklyPay * 52;
         String result = formatter.format(weeklyPayCalculator);
         playerSalaryView.resultWeeklyPayToAnnualIncome(result, playerName);
     }
