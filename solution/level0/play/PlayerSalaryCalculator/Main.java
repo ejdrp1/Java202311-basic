@@ -1,12 +1,15 @@
 package level0.play.PlayerSalaryCalculator;
 
+import level0.play.PlayerSalaryCalculator.Controller.ExampleController;
 import level0.play.PlayerSalaryCalculator.Controller.PlayerSalaryController;
 
 public class Main {
     public static void main(String[] args) {
 
         PlayerSalaryController playerSalaryController = new PlayerSalaryController();
-        playerSalaryController.startPlayerSalaryCalculator();
+//        playerSalaryController.startPlayerSalaryCalculator();
 
+        ExampleController exampleController = new ExampleController();
+        exampleController.startExample();
     }
 }

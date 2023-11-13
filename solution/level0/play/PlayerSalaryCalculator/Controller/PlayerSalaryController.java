@@ -8,17 +8,16 @@ import java.util.Scanner;
 public class PlayerSalaryController {
     Scanner scanner = new Scanner(System.in);
     DecimalFormat formatter = new DecimalFormat("###,###");
-    PlayerSalaryView playerSalaryView = new PlayerSalaryView();
 
     public void startPlayerSalaryCalculator() {
-        playerSalaryView.startPlayerSalaryCalculator();
-        playerSalaryView.inputPlayerName();
+        PlayerSalaryView.startPlayerSalaryCalculator();
+        PlayerSalaryView.inputPlayerName();
         inputPlayerName();
     }
 
     public void inputPlayerName() {
         String playerName = scanner.next();
-        playerSalaryView.selectSalaryType();
+        PlayerSalaryView.selectSalaryType();
         selectSalaryTypeOfPlayer(playerName);
     }
 
@@ -30,11 +29,11 @@ public class PlayerSalaryController {
     private void verificationSalaryType(int salaryTypeNum, String playerName) {
         switch (salaryTypeNum) {
             case 1:
-                playerSalaryView.selectWeeklyPayOfPlayer();
+                PlayerSalaryView.selectWeeklyPayOfPlayer();
                 inputWeeklyPayOfPlayer(playerName);
                 break;
             case 2:
-                playerSalaryView.selectAnnualIncomeOfPlayer();
+                PlayerSalaryView.selectAnnualIncomeOfPlayer();
                 inputAnnualIncomeOfPlayer(playerName);
                 break;
         }
@@ -49,7 +48,7 @@ public class PlayerSalaryController {
     private void weeklyPayToAnnualIncome(long weeklyPay, String playerName) {
         long weeklyPayCalculator = weeklyPay * 52;
         String result = formatter.format(weeklyPayCalculator);
-        playerSalaryView.resultWeeklyPayToAnnualIncome(result, playerName);
+        PlayerSalaryView.resultWeeklyPayToAnnualIncome(result, playerName);
     }
 
     private void inputAnnualIncomeOfPlayer(String playerName) {
@@ -60,7 +59,7 @@ public class PlayerSalaryController {
     private void annualIncomeToWeeklyPay(long annualIncome, String playerName) {
         long annualIncomeCalculator = annualIncome / 52;
         String result = formatter.format(annualIncomeCalculator);
-        playerSalaryView.resultAnnualIncomeToWeeklyPay(result, playerName);
+        PlayerSalaryView.resultAnnualIncomeToWeeklyPay(result, playerName);
     }
 
 }
