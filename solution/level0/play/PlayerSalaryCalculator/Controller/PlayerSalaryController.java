@@ -5,28 +5,34 @@ import level0.play.PlayerSalaryCalculator.View.PlayerSalaryView;
 import java.util.Scanner;
 
 public class PlayerSalaryController {
-    public static Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
     PlayerSalaryView playerSalaryView = new PlayerSalaryView();
 
+    public void startPlayerSalaryCalCulator() {
+        playerSalaryView.startPlayerSalaryCalculator();
+        playerSalaryView.inputPlayerName();
+        inputPlayerName();
+    }
 
+    public void inputPlayerName() {
+        String inputPlayerName = scanner.next();
+        playerSalaryView.selectSalaryType();
+        selectSalaryTypeOfPlayer();
+    }
 
-    public void selectPlayerSalaryType(int playerSalaryType) {
-        switch (playerSalaryType) {
+    private void selectSalaryTypeOfPlayer() {
+        int selectSalaryTypeNum = scanner.nextInt();
+        verificationSalaryType(selectSalaryTypeNum);
+    }
+
+    private void verificationSalaryType(int salaryTypeNum) {
+        switch (salaryTypeNum) {
             case 1:
-                playerSalaryView.inputWeeklyOfPayPlayer();
+                playerSalaryView.selectWeeklyPayOfPlayer();
                 break;
             case 2:
-                playerSalaryView.inputAnnualIncomePlayer();
                 break;
         }
     }
 
-    public static void weeklyPayOfPlayerCalculator(int weeklyPayOfPlayer) {
-        int annualIncome = weeklyPayOfPlayer * 52;
-        PlayerSalaryView.resultWeeklyPayOfAnnualIncome(annualIncome);
-    }
-    public static void annualIncomeOfPlayerCalculator(long annualIncomeOfPlayer) {
-        long weeklyPay = annualIncomeOfPlayer / 52;
-        PlayerSalaryView.resultAnnualIncomeOfAnnualIncome(weeklyPay);
-    }
 }
