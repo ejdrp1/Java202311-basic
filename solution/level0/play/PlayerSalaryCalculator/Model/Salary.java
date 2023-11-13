@@ -2,10 +2,11 @@ package level0.play.PlayerSalaryCalculator.Model;
 
 public class Salary {
 
-    private String weeklyPay;
-    private String annualIncome;
+    private String weeklyPay; // 주급
+    private String annualIncome; // 연봉
 
-    public Salary() {}
+    public Salary() {
+    }
 
     public Salary(String weeklyPay, String annualIncome) {
         this.weeklyPay = weeklyPay;
