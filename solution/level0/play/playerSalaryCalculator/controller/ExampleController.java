@@ -1,6 +1,6 @@
-package level0.play.PlayerSalaryCalculator.Controller;
+package level0.play.playerSalaryCalculator.controller;
 
-import level0.play.PlayerSalaryCalculator.Model.Player;
+import level0.play.playerSalaryCalculator.model.Player;
 
 import java.util.Scanner;
 

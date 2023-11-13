@@ -1,6 +1,6 @@
-package level0.play.PositionInfoService.View;
+package level0.play.positionInfoService.View;
 
-import level0.play.PositionInfoService.Controller.PositionController;
+import level0.play.positionInfoService.Controller.PositionController;
 
 public class PositionView {
 

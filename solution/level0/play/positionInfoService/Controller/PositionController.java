@@ -1,6 +1,6 @@
-package level0.play.PositionInfoService.Controller;
+package level0.play.positionInfoService.Controller;
 
-import level0.play.PositionInfoService.Model.Forward;
+import level0.play.positionInfoService.Model.Forward;
 
 import java.util.Scanner;
 

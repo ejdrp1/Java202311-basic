@@ -1,6 +1,6 @@
-package level0.play.PlayerSalaryCalculator.Controller;
+package level0.play.playerSalaryCalculator.controller;
 
-import level0.play.PlayerSalaryCalculator.View.PlayerSalaryView;
+import level0.play.playerSalaryCalculator.view.PlayerSalaryView;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;

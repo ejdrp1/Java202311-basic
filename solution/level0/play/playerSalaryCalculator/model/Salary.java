@@ -1,4 +1,4 @@
-package level0.play.PlayerSalaryCalculator.Model;
+package level0.play.playerSalaryCalculator.model;
 
 public class Salary {
 

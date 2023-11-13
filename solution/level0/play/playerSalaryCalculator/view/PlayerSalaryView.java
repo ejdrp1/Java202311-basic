@@ -1,4 +1,4 @@
-package level0.play.PlayerSalaryCalculator.View;
+package level0.play.playerSalaryCalculator.view;
 
 public class PlayerSalaryView {
 

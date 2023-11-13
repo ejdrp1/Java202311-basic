@@ -1,6 +1,6 @@
-package level0.play.PositionInfoService;
+package level0.play.positionInfoService;
 
-import level0.play.PositionInfoService.View.PositionView;
+import level0.play.positionInfoService.View.PositionView;
 
 public class PositionMain {
 

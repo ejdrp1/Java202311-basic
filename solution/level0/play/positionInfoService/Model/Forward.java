@@ -1,4 +1,4 @@
-package level0.play.PositionInfoService.Model;
+package level0.play.positionInfoService.Model;
 
 public class Forward {
 

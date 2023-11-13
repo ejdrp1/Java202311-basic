@@ -1,8 +1,9 @@
-package level0.play.PlayerSalaryCalculator.Model;
+package variableMethod.basic;
 
 public class Player {
 
     private String name;
+    private String position;
     private int age;
 
     public String getName() {
@@ -13,6 +14,14 @@ public class Player {
         this.name = name;
     }
 
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
     public int getAge() {
         return age;
     }
@@ -20,4 +29,7 @@ public class Player {
     public void setAge(int age) {
         this.age = age;
     }
+
+
 }
+
