@@ -6,18 +6,20 @@ import java.util.Scanner;
 
 public class PlayerSalaryController {
     public static Scanner scanner = new Scanner(System.in);
+    PlayerSalaryView playerSalaryView = new PlayerSalaryView();
 
 
     public void selectPlayerSalaryType(int playerSalaryType) {
         switch (playerSalaryType) {
             case 1:
-                System.out.println("주급 선택");
+                playerSalaryView.inputWeeklyOfPayPlayer();
                 break;
             case 2:
-                System.out.println("연봉 선택");
                 break;
         }
     }
 
+    public static void weeklyPayOfPlayerCalculator(int weeklyPayOfPlayer) {
 
+    }
 }
