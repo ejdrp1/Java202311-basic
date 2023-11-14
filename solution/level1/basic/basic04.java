@@ -16,7 +16,7 @@ public class basic04 {
         return answer;
     }
 
-//    다른 풀이
+    //    다른 풀이
     public double solution1(int[] arr) {
         return Arrays.stream(arr).average().getAsDouble();
     }
