@@ -32,17 +32,8 @@ public class TeamRankingController {
 
         Team team = null;
         List<Team> teamList = null;
-        String userInputTeamName = scanner.next();
-        String[] inputTeamNameArr = userInputTeamName.split(",");
 
 
-        for (int i = 0; i < inputTeamNameArr.length; i++) {
-            System.out.println(inputTeamNameArr[i]);
-            teamList = new ArrayList<>();
-            team = new Team(inputTeamNameArr[i]);
-
-//            teamList.add(i, team);
-        }
 
 
     }

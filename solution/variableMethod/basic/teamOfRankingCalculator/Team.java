@@ -2,7 +2,7 @@ package variableMethod.basic.teamOfRankingCalculator;
 
 public class Team {
 
-    private String teamName;
+    private String teamName; // 팀 이름
     private int winMatches; // 승
     private int drawMatches; // 무
     private int loseMatches; // 패
