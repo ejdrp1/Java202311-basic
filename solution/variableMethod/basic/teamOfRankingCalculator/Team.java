@@ -2,23 +2,38 @@ package variableMethod.basic.teamOfRankingCalculator;
 
 public class Team {
 
+    private String teamName;
     private int winMatches; // 승
     private int drawMatches; // 무
     private int loseMatches; // 패
-    private int matches; // 경기 수
     private int score; // 득점
     private int losePoint; // 실점
-    private int differenceBetweenGainsAndLosses; // 득실차
 
-    public Team(int winMatches, int drawMatches, int loseMatches, int matches, int score, int losePoint, int differenceBetweenGainsAndLosses) {
+    public Team() {
+    }
+
+    public Team(String teamName) {
+        this.teamName = teamName;
+    }
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
+
+
+
+    public Team(int winMatches, int drawMatches, int loseMatches, int score, int losePoint) {
         this.winMatches = winMatches;
         this.drawMatches = drawMatches;
         this.loseMatches = loseMatches;
-        this.matches = matches;
         this.score = score;
         this.losePoint = losePoint;
-        this.differenceBetweenGainsAndLosses = differenceBetweenGainsAndLosses;
     }
+
 
     public int getWinMatches() {
         return winMatches;
@@ -44,14 +59,6 @@ public class Team {
         this.loseMatches = loseMatches;
     }
 
-    public int getMatches() {
-        return matches;
-    }
-
-    public void setMatches(int matches) {
-        this.matches = matches;
-    }
-
     public int getScore() {
         return score;
     }
@@ -66,14 +73,6 @@ public class Team {
 
     public void setLosePoint(int losePoint) {
         this.losePoint = losePoint;
-    }
-
-    public int getDifferenceBetweenGainsAndLosses() {
-        return differenceBetweenGainsAndLosses;
-    }
-
-    public void setDifferenceBetweenGainsAndLosses(int differenceBetweenGainsAndLosses) {
-        this.differenceBetweenGainsAndLosses = differenceBetweenGainsAndLosses;
     }
 
 }

@@ -17,8 +17,8 @@ public class TeamRankingView {
         System.out.println("시작은 1번, 종료는 2번을 입력해주세요.");
     }
 
-    public static void inputTeamInfo() {
-        System.out.println("1번 선택함");
+    public static void inputTeamText() {
+        System.out.println("7개의 팀을 한줄로 입력해주세요. ( 예시) A팀, B팀,... G팀 )");
     }
 
     public static void endProgram() {
