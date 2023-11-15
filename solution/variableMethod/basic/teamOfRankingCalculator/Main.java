@@ -6,5 +6,6 @@ public class Main {
 
         TeamRankingController teamRankingController = new TeamRankingController();
         teamRankingController.startProgram();
+
     }
 }

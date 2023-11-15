@@ -37,9 +37,11 @@ public class TeamRankingController {
 
 
         for (int i = 0; i < inputTeamNameArr.length; i++) {
+            System.out.println(inputTeamNameArr[i]);
             teamList = new ArrayList<>();
             team = new Team(inputTeamNameArr[i]);
-            System.out.println(team.getTeamName());
+
+//            teamList.add(i, team);
         }
 
 
