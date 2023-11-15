@@ -7,6 +7,8 @@ public class TeamMatchRecord {
     private int loseMatches; // 패
     private int scorePoint; // 득점
     private int losePoint; // 실점
+    private int differenceBetweenGainsAndLosses; // 득실차
+    private int point; // 승점
 
 
 }
