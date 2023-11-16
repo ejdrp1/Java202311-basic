@@ -1,6 +1,6 @@
 package groupStageCalculator;
 
-public class TeamMatchRecord {
+public class TeamMatchRecord extends Team{
 
     private int winMatches; // 승
     private int drawMatches; // 무
