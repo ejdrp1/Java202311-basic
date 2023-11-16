@@ -24,12 +24,18 @@ public class GroupStageView {
 
     public static void inputTeamNameInfo() {
         System.out.println();
-        System.out.println("참가할 4개의 팀을 적어주세요. ( ex.팀1, 팀2, 팀3, 팀4)");
-        System.out.print("팀 입력 : ");
+        System.out.println("참가할 4개의 팀을 적어주세요. ( ex.팀1, 팀2, 팀3, 팀4 )");
+        System.out.print("입력 : ");
     }
 
-    public static void introParticipateTeamInfo(String teams) {
+    public static void reconfirmParticipateTeamInfo(String teams) {
         System.out.println();
         System.out.println("'" + teams + "'" + " 팀이 참가하였습니다.");
+    }
+
+    public static void introAssignedGroupStageTeamInfo(String teams) {
+        System.out.println();
+        System.out.println("참가한 " + "'" + teams + "'" + " + 팀이 A조에 편성되었습니다.");
+        System.out.println("조별리그를 시작합니다.");
     }
 }
