@@ -1,6 +1,6 @@
 package groupStageCalculator;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class GroupStageView {
 
@@ -28,5 +28,19 @@ public class GroupStageView {
         System.out.print("입력 : ");
     }
 
+    public static void introSetGroupStageTeamInfo(List<Team> groupA) {
+        System.out.println();
+        System.out.println("'" + groupA.get(0).getTeamName() + "', '" +
+                groupA.get(1).getTeamName() + "', '" +
+                groupA.get(2).getTeamName() + "', '" +
+                groupA.get(3).getTeamName() + "'" +
+                " 팀이 A조에 편성되었습니다.");
+    }
 
+    public static void groupStageInfo(List<Team> groupA) {
+        System.out.println();
+        System.out.println("A조 진행 상황");
+        System.out.println("순위" + " | " + "팀명" + " | " + "경기수" + " | " + "승" + " | " + "무" + " | " + "패" + " | " + "득점" + " | " + "실점" + " | " + "득실차" + " | " + "승점");
+
+    }
 }

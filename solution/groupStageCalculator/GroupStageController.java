@@ -26,22 +26,27 @@ public class GroupStageController {
 
     private void inputTeamName() {
         GroupStageView.inputTeamNameInfo();
+        setGroupStageTeam();
+    }
+
+    private void setGroupStageTeam() {
         String participateTeams = scanner.next();
         String[] participateTeamsArr = participateTeams.split(",");
+        List<Team> groupA = new ArrayList<>(); // 조
         Team team;
-        List<Team> groupA;
-
-        for (int i = 0; i < participateTeamsArr.length; i++) {
+        for (String teamNames : participateTeamsArr) {
             team = new Team();
-            groupA = new ArrayList<>();
-
-            for (int j = i; j <= i; j++) {
-                team.setTeamName(participateTeamsArr[j]);
-            }
-            System.out.println(team.getTeamName());
-
-
+            team.setTeamName(teamNames);
+            groupA.add(team);
         }
+        GroupStageView.introSetGroupStageTeamInfo(groupA);
+        groupStage(groupA);
     }
+
+    private void groupStage(List<Team> groupA) {
+        Ranking ranking = new Ranking();
+        GroupStageView.groupStageInfo(groupA);
+    }
+
 
 }
