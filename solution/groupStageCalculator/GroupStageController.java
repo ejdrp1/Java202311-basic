@@ -45,7 +45,44 @@ public class GroupStageController {
 
     private void groupStage(List<Team> groupA) {
         Ranking ranking = new Ranking();
-        GroupStageView.groupStageInfo(groupA);
+        TeamMatchRecord teamMatchRecord = new TeamMatchRecord();
+        GroupStageView.groupStageProgressInfo(groupA);
+        playFirstMatches(groupA);
+    }
+
+    private void playFirstMatches(List<Team> groupA) {
+        GroupStageView.playMatchesInfo();
+        GroupStageView.inputFirstMatchesInfo();
+        GroupStageView.introMatchesInfo(groupA);
+        GroupStageView.inputFirstTeamScore(groupA);
+        int inputFirstTeamMatchesScore = scanner.nextInt();
+        GroupStageView.inputSecondTeamScore(groupA);
+        int inputSecondTeamMatchesScore = scanner.nextInt();
+        inputFirstMatchesScore(inputFirstTeamMatchesScore, inputSecondTeamMatchesScore, groupA);
+    }
+
+    private void inputFirstMatchesScore(int firstTeamMatchesScore, int secondTeamMatchesScore, List<Team> groupA) {
+        calculationFirstMatchesScore(firstTeamMatchesScore, secondTeamMatchesScore, groupA);
+    }
+
+    private void calculationFirstMatchesScore(int firstTeamMatchesScore, int secondTeamMatchesScore, List<Team> groupA) {
+        TeamMatchRecord teamMatchRecord = new TeamMatchRecord();
+        teamMatchRecord.setMatchNum(1);
+        if (firstTeamMatchesScore > secondTeamMatchesScore) {
+            teamMatchRecord.getWinMatches();
+            teamMatchRecord.setWinMatches(1);
+            teamMatchRecord.setPoint(3);
+        } else if (firstTeamMatchesScore == secondTeamMatchesScore) {
+            teamMatchRecord.getWinMatches();
+            teamMatchRecord.setDrawMatches(1);
+            teamMatchRecord.setPoint(1);
+        } else {
+            teamMatchRecord.getWinMatches();
+            teamMatchRecord.setLoseMatches(1);
+            teamMatchRecord.setPoint(0);
+        }
+
+        GroupStageView.resultFirstMatchesInfo(firstTeamMatchesScore, secondTeamMatchesScore, groupA, teamMatchRecord);
     }
 
 
