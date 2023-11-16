@@ -1,9 +1,6 @@
 package groupStageCalculator;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class GroupStageController {
 
@@ -30,9 +27,19 @@ public class GroupStageController {
     private void inputTeamName() {
         GroupStageView.inputTeamNameInfo();
         String participateTeams = scanner.next();
+        String[] participateTeamsArr = participateTeams.split(",");
         Team team;
+        List<Team> groupA;
 
-        for (int i = 0; i < participateTeams.length(); i++) {
+        for (int i = 0; i < participateTeamsArr.length; i++) {
+            team = new Team();
+            groupA = new ArrayList<>();
+
+            for (int j = i; j <= i; j++) {
+                team.setTeamName(participateTeamsArr[j]);
+            }
+            System.out.println(team.getTeamName());
+
 
         }
     }
