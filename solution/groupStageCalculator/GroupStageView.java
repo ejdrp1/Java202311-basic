@@ -1,5 +1,7 @@
 package groupStageCalculator;
 
+import java.util.Arrays;
+
 public class GroupStageView {
 
     public static void introProgramInfo() {
@@ -24,5 +26,10 @@ public class GroupStageView {
         System.out.println();
         System.out.println("참가할 4개의 팀을 적어주세요. ( ex.팀1, 팀2, 팀3, 팀4)");
         System.out.print("팀 입력 : ");
+    }
+
+    public static void introParticipateTeamInfo(String teams) {
+        System.out.println();
+        System.out.println("'" + teams + "'" + " 팀이 참가하였습니다.");
     }
 }

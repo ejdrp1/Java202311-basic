@@ -29,6 +29,6 @@ public class GroupStageController {
         GroupStageView.inputTeamNameInfo();
         String participateTeams = scanner.next();
         String[] participateTeamsArr = participateTeams.split(",");
-        System.out.println(Arrays.toString(participateTeamsArr));
+        GroupStageView.introParticipateTeamInfo(Arrays.toString(participateTeamsArr));
     }
 }
