@@ -1,5 +1,6 @@
 package groupStageCalculator;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class GroupStageController {
@@ -27,6 +28,7 @@ public class GroupStageController {
     private void inputTeamName() {
         GroupStageView.inputTeamNameInfo();
         String participateTeams = scanner.next();
-        System.out.println(participateTeams);
+        String[] participateTeamsArr = participateTeams.split(",");
+        System.out.println(Arrays.toString(participateTeamsArr));
     }
 }
