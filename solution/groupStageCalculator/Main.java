@@ -6,5 +6,6 @@ public class Main {
 
             GroupStageController groupStageController = new GroupStageController();
             groupStageController.startProgram();
+
     }
 }
