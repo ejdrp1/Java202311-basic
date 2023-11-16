@@ -16,11 +16,17 @@ public class GroupStageController {
     private void selectStartAndEndNum(int selectStartAndEndNum) {
         switch (selectStartAndEndNum) {
             case 1:
-                System.out.println("1번 선택");
+                inputTeamName();
                 break;
             case 2:
                 GroupStageView.selectProgramEnd();
                 return;
         }
+    }
+
+    private void inputTeamName() {
+        GroupStageView.inputTeamNameInfo();
+        String participateTeams = scanner.next();
+        System.out.println(participateTeams);
     }
 }

@@ -19,4 +19,10 @@ public class GroupStageView {
         System.out.println();
         System.out.println("프로그램을 종료합니다. 이용해주셔서 감사합니다.");
     }
+
+    public static void inputTeamNameInfo() {
+        System.out.println();
+        System.out.println("참가할 4개의 팀을 적어주세요. ( ex.팀1, 팀2, 팀3, 팀4)");
+        System.out.print("팀 입력 : ");
+    }
 }
