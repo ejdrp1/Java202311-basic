@@ -2,19 +2,20 @@ package groupStageCalculator;
 
 public class TeamMatchRecord extends Team {
 
-    private int winMatches; // 승
-    private int drawMatches; // 무
-    private int loseMatches; // 패
-    private int scorePoint; // 득점
-    private int losePoint; // 실점
-    private int differenceBetweenGainsAndLosses; // 득실차
-    private int point; // 승점
-    private int matchNum; // 경기수
+    private int winMatches = 0; // 승
+    private int drawMatches = 0; // 무
+    private int loseMatches = 0; // 패
+    private int scorePoint = 0; // 득점
+    private int losePoint = 0; // 실점
+    private int differenceBetweenGainsAndLosses = 0; // 득실차
+    private int point = 0; // 승점
+    private int matchesNum = 0; // 경기수
 
 
-    public TeamMatchRecord() {}
+    public TeamMatchRecord() {
+    }
 
-    public TeamMatchRecord(int winMatches, int drawMatches, int loseMatches, int scorePoint, int losePoint, int differenceBetweenGainsAndLosses, int point, int matchNum) {
+    public TeamMatchRecord(int winMatches, int drawMatches, int loseMatches, int scorePoint, int losePoint, int differenceBetweenGainsAndLosses, int point, int matchesNum) {
         this.winMatches = winMatches;
         this.drawMatches = drawMatches;
         this.loseMatches = loseMatches;
@@ -22,10 +23,10 @@ public class TeamMatchRecord extends Team {
         this.losePoint = losePoint;
         this.differenceBetweenGainsAndLosses = differenceBetweenGainsAndLosses;
         this.point = point;
-        this.matchNum = matchNum;
+        this.matchesNum = matchesNum;
     }
 
-    public TeamMatchRecord(String teamName, int winMatches, int drawMatches, int loseMatches, int scorePoint, int losePoint, int differenceBetweenGainsAndLosses, int point, int matchNum) {
+    public TeamMatchRecord(String teamName, int winMatches, int drawMatches, int loseMatches, int scorePoint, int losePoint, int differenceBetweenGainsAndLosses, int point, int matchesNum) {
         super(teamName);
         this.winMatches = winMatches;
         this.drawMatches = drawMatches;
@@ -34,16 +35,16 @@ public class TeamMatchRecord extends Team {
         this.losePoint = losePoint;
         this.differenceBetweenGainsAndLosses = differenceBetweenGainsAndLosses;
         this.point = point;
-        this.matchNum = matchNum;
+        this.matchesNum = matchesNum;
     }
 
     public int getWinMatches() {
-        winMatches++;
         return winMatches;
     }
 
     public void setWinMatches(int winMatches) {
         this.winMatches = winMatches;
+        winMatches++;
     }
 
     public int getDrawMatches() {
@@ -94,12 +95,12 @@ public class TeamMatchRecord extends Team {
         this.point = point;
     }
 
-    public int getMatchNum() {
-        return matchNum;
+    public int getMatchesNum() {
+        return ++matchesNum;
     }
 
-    public void setMatchNum(int matchNum) {
-        this.matchNum = matchNum;
+    public void setMatchesNum(int matchesNum) {
+        this.matchesNum = matchesNum;
     }
 
     public int sumDifferenceBetweenGainsAndLosses(int scorePoint, int losePoint) {

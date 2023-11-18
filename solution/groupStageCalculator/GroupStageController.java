@@ -40,10 +40,19 @@ public class GroupStageController {
             groupA.add(team);
         }
         GroupStageView.introSetGroupStageTeamInfo(groupA);
-        testMethod();
+        groupStageProgress(groupA);
     }
 
-    private void testMethod() {
+    private void groupStageProgress(List<Team> groupA) {
+        TeamMatchRecord teamMatchRecord = new TeamMatchRecord();
+        GroupStageView.groupStageProgressInfo(groupA, teamMatchRecord);
+        teamMatchRecord.setMatchesNum(0);
+        test(groupA, teamMatchRecord);
+    }
+
+    private void test(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
+
+        GroupStageView.groupStageProgressInfo(groupA, teamMatchRecord);
     }
 
 

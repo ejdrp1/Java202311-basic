@@ -37,15 +37,15 @@ public class GroupStageView {
                 " 팀이 A조에 편성되었습니다.");
     }
 
-//    public static void groupStageProgressInfo(List<Team> groupA) {
-//        System.out.println();
-//        System.out.println("A조 진행 상황");
-//        System.out.println("순위" + " | " + " 팀명 " + " | " + "경기수" + " | " + " 승 " + " | " + " 무 " + " | " + " 패 " + " | " + " 득점 " + " | " + " 실점 " + " | " + " 득실차 " + " | " + " 승점");
-//        System.out.println("   " + 1 + " | " + groupA.get(0).getTeamName() + " |   " + 0 + "      " + 0 + "      " + 0 + "      " + 0 + "      " + 0 + "        " + 0 + "        " + 0 + "        " + 0);
-//        System.out.println("   " + 2 + " | " + groupA.get(1).getTeamName() + " |   " + 0 + "      " + 0 + "      " + 0 + "      " + 0 + "      " + 0 + "        " + 0 + "        " + 0 + "        " + 0);
-//        System.out.println("   " + 3 + " | " + groupA.get(2).getTeamName() + " |   " + 0 + "      " + 0 + "      " + 0 + "      " + 0 + "      " + 0 + "        " + 0 + "        " + 0 + "        " + 0);
-//        System.out.println("   " + 4 + " | " + groupA.get(3).getTeamName() + " |   " + 0 + "      " + 0 + "      " + 0 + "      " + 0 + "      " + 0 + "        " + 0 + "        " + 0 + "        " + 0);
-//    }
+    public static void groupStageProgressInfo(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
+        System.out.println();
+        System.out.println("A조 진행 상황");
+        System.out.println("순위" + " | " + " 팀명 " + " | " + "경기수" + " | " + " 승 " + " | " + " 무 " + " | " + " 패 " + " | " + " 득점 " + " | " + " 실점 " + " | " + " 득실차 " + " | " + " 승점");
+        System.out.println("   " + teamMatchRecord.getMatchesNum() + " | " + groupA.get(0).getTeamName() + " |   " + 0 + "      " + 0 + "      " + 0 + "      " + 0 + "      " + 0 + "        " + 0 + "        " + 0 + "        " + 0);
+        System.out.println("   " + 2 + " | " + groupA.get(1).getTeamName() + " |   " + 0 + "      " + 0 + "      " + 0 + "      " + 0 + "      " + 0 + "        " + 0 + "        " + 0 + "        " + 0);
+        System.out.println("   " + 3 + " | " + groupA.get(2).getTeamName() + " |   " + 0 + "      " + 0 + "      " + 0 + "      " + 0 + "      " + 0 + "        " + 0 + "        " + 0 + "        " + 0);
+        System.out.println("   " + 4 + " | " + groupA.get(3).getTeamName() + " |   " + 0 + "      " + 0 + "      " + 0 + "      " + 0 + "      " + 0 + "        " + 0 + "        " + 0 + "        " + 0);
+    }
 
 
 
