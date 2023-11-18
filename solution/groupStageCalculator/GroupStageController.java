@@ -85,5 +85,9 @@ public class GroupStageController {
         GroupStageView.resultFirstMatchesInfo(firstTeamMatchesScore, secondTeamMatchesScore, groupA, teamMatchRecord);
     }
 
+    public void test() {
+
+    }
+
 
 }
