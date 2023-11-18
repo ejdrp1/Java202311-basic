@@ -40,9 +40,11 @@ public class GroupStageController {
             groupA.add(team);
         }
         GroupStageView.introSetGroupStageTeamInfo(groupA);
+        testMethod();
     }
 
-
+    private void testMethod() {
+    }
 
 
 }
