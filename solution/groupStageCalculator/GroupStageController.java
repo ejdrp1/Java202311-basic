@@ -48,7 +48,7 @@ public class GroupStageController {
     private void repeatGroupStageProgress(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
         GroupStageView.groupStageProgressInfo(groupA, teamMatchRecord); // 경기 진행 상황
         for (int i = 0; i < 6; i++) {
-            groupStageProgress(groupA , teamMatchRecord);
+            groupStageProgress(groupA, teamMatchRecord);
         }
 
     }
@@ -61,42 +61,11 @@ public class GroupStageController {
     private void inputTeamScore(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
         teamMatchRecord.incrementMatchesNum();
 
-        GroupStageView.inputFirstTeamScoreInfo(groupA, teamMatchRecord);
-        int sumFirstScorePoint = teamMatchRecord.accumulateScorePointNum(scanner.nextInt());
-        teamMatchRecord.accumulateScorePointNum(sumFirstScorePoint);
-        GroupStageView.inputSecondTeamScoreInfo(groupA, teamMatchRecord);
-        int sumSecondScorePoint = teamMatchRecord.accumulateScorePointNum(scanner.nextInt());
-        teamMatchRecord.accumulateScorePointNum(sumSecondScorePoint);
-        teamMatchRecord.accumulateLosePointNum(sumFirstScorePoint);
-        int sumDifferFirSec = teamMatchRecord.sumDifferenceBetweenGainsAndLosses(sumFirstScorePoint, sumSecondScorePoint);
-
-        GroupStageView.inputThirdTeamScoreInfo(groupA, teamMatchRecord);
-        int sumThirdScorePoint = teamMatchRecord.accumulateScorePointNum(scanner.nextInt());
-        teamMatchRecord.accumulateScorePointNum(sumThirdScorePoint);
-        GroupStageView.inputLastTeamScoreInfo(groupA, teamMatchRecord);
-        int sumLastScorePoint = teamMatchRecord.accumulateScorePointNum(scanner.nextInt());
-        teamMatchRecord.accumulateScorePointNum(sumLastScorePoint);
-        teamMatchRecord.accumulateLosePointNum(sumThirdScorePoint);
-        int sumDifferThiLas = teamMatchRecord.sumDifferenceBetweenGainsAndLosses(sumThirdScorePoint, sumLastScorePoint);
-
-        resultMatches(groupA, teamMatchRecord, sumFirstScorePoint, sumSecondScorePoint, sumThirdScorePoint, sumLastScorePoint, sumDifferFirSec, sumDifferThiLas);
-
 
 
         GroupStageView.endMatchesRoundInfo(teamMatchRecord);
 //        경기 승 무 패 count 조건식 + 득실차 + 승점
 
-        GroupStageView.endGroupStageProgressInfo(groupA, teamMatchRecord, sumFirstScorePoint, sumSecondScorePoint, sumThirdScorePoint, sumLastScorePoint);
-    }
-
-    private void resultMatches(List<Team> groupA, TeamMatchRecord teamMatchRecord, int sumFirstScorePoint, int sumSecondScorePoint, int sumThirdScorePoint, int sumLastScorePoint, int sumDifferFirSec, int sumDifferThiLas) {
-        if (sumFirstScorePoint > sumSecondScorePoint) {
-            teamMatchRecord.incrementWinMatches();
-        } else if (sumFirstScorePoint == sumSecondScorePoint) {
-            teamMatchRecord.incrementDrawMatches();
-        } else {
-            teamMatchRecord.incrementLoseMatches();
-        }
     }
 
 
