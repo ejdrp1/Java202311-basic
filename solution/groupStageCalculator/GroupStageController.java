@@ -68,7 +68,7 @@ public class GroupStageController {
         int sumSecondScorePoint = teamMatchRecord.accumulateScorePointNum(scanner.nextInt());
         teamMatchRecord.accumulateScorePointNum(sumSecondScorePoint);
         teamMatchRecord.accumulateLosePointNum(sumFirstScorePoint);
-        teamMatchRecord.sumDifferenceBetweenGainsAndLosses(sumFirstScorePoint, sumSecondScorePoint);
+        int sumDifferFirSec = teamMatchRecord.sumDifferenceBetweenGainsAndLosses(sumFirstScorePoint, sumSecondScorePoint);
 
         GroupStageView.inputThirdTeamScoreInfo(groupA, teamMatchRecord);
         int sumThirdScorePoint = teamMatchRecord.accumulateScorePointNum(scanner.nextInt());
@@ -77,12 +77,26 @@ public class GroupStageController {
         int sumLastScorePoint = teamMatchRecord.accumulateScorePointNum(scanner.nextInt());
         teamMatchRecord.accumulateScorePointNum(sumLastScorePoint);
         teamMatchRecord.accumulateLosePointNum(sumThirdScorePoint);
-        teamMatchRecord.sumDifferenceBetweenGainsAndLosses(sumThirdScorePoint, sumLastScorePoint);
+        int sumDifferThiLas = teamMatchRecord.sumDifferenceBetweenGainsAndLosses(sumThirdScorePoint, sumLastScorePoint);
+
+        resultMatches(groupA, teamMatchRecord, sumFirstScorePoint, sumSecondScorePoint, sumThirdScorePoint, sumLastScorePoint, sumDifferFirSec, sumDifferThiLas);
+
+
 
         GroupStageView.endMatchesRoundInfo(teamMatchRecord);
 //        경기 승 무 패 count 조건식 + 득실차 + 승점
 
         GroupStageView.endGroupStageProgressInfo(groupA, teamMatchRecord, sumFirstScorePoint, sumSecondScorePoint, sumThirdScorePoint, sumLastScorePoint);
+    }
+
+    private void resultMatches(List<Team> groupA, TeamMatchRecord teamMatchRecord, int sumFirstScorePoint, int sumSecondScorePoint, int sumThirdScorePoint, int sumLastScorePoint, int sumDifferFirSec, int sumDifferThiLas) {
+        if (sumFirstScorePoint > sumSecondScorePoint) {
+            teamMatchRecord.incrementWinMatches();
+        } else if (sumFirstScorePoint == sumSecondScorePoint) {
+            teamMatchRecord.incrementDrawMatches();
+        } else {
+            teamMatchRecord.incrementLoseMatches();
+        }
     }
 
 

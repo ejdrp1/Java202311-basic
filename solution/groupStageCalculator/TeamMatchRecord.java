@@ -115,11 +115,21 @@ public class TeamMatchRecord extends Team {
         this.scorePoint += scorePoint;
         return scorePoint;
     }
+
     public void accumulateLosePointNum(int losePoint) {
         this.losePoint += losePoint;
     }
 
+    public void incrementWinMatches() {
+        this.winMatches++;
+    }
 
+    public void incrementDrawMatches() {
+        this.drawMatches++;
+    }
 
+    public void incrementLoseMatches() {
+        this.loseMatches++;
+    }
 
 }
