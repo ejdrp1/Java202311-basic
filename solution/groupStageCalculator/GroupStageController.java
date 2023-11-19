@@ -51,12 +51,11 @@ public class GroupStageController {
     }
 
     private void test(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
-
         GroupStageView.groupStageProgressInfo(groupA, teamMatchRecord);
     }
 
     public void test() {
-
+        System.out.println("test");
     }
 
 
