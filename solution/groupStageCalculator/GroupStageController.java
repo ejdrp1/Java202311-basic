@@ -46,16 +46,12 @@ public class GroupStageController {
     private void groupStageProgress(List<Team> groupA) {
         TeamMatchRecord teamMatchRecord = new TeamMatchRecord();
         GroupStageView.groupStageProgressInfo(groupA, teamMatchRecord);
-        teamMatchRecord.setMatchesNum(0);
+        teamMatchRecord.incrementMatchesNum();
         test(groupA, teamMatchRecord);
     }
 
     private void test(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
         GroupStageView.groupStageProgressInfo(groupA, teamMatchRecord);
-    }
-
-    public void test() {
-        System.out.println("test");
     }
 
 

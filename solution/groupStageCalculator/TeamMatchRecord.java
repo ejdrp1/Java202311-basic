@@ -96,11 +96,15 @@ public class TeamMatchRecord extends Team {
     }
 
     public int getMatchesNum() {
-        return ++matchesNum;
+        return matchesNum;
     }
 
     public void setMatchesNum(int matchesNum) {
         this.matchesNum = matchesNum;
+    }
+
+    public void incrementMatchesNum() {
+        this.matchesNum++;
     }
 
     public int sumDifferenceBetweenGainsAndLosses(int scorePoint, int losePoint) {
