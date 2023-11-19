@@ -40,10 +40,10 @@ public class GroupStageView {
     public static void introMatchesScheduleInfo(List<Team> groupA) {
         System.out.println();
         System.out.println("경기 일정입니다.");
-        System.out.println("1Round");
+
+        System.out.println();
         System.out.println(groupA.get(0).getTeamName() + " : " + groupA.get(1).getTeamName());
         System.out.println(groupA.get(2).getTeamName() + " : " + groupA.get(3).getTeamName());
-        System.out.println();
         System.out.println("2Round");
         System.out.println(groupA.get(0).getTeamName() + " : " + groupA.get(2).getTeamName());
         System.out.println(groupA.get(1).getTeamName() + " : " + groupA.get(3).getTeamName());
@@ -81,27 +81,6 @@ public class GroupStageView {
     }
 
 
-    public static void inputFirstTeamScoreInfo(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
-        System.out.println();
-        System.out.println("'" + groupA.get(0).getTeamName() + "'" + "팀의 득점을 입력해주세요. (" + teamMatchRecord.getMatchesNum() + "Round)");
-        System.out.print("입력 : ");
-    }
-
-    public static void inputSecondTeamScoreInfo(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
-        System.out.println("'" + groupA.get(1).getTeamName() + "'" + "팀의 득점을 입력해주세요. (" + teamMatchRecord.getMatchesNum() + "Round)");
-        System.out.print("입력 : ");
-    }
-
-    public static void inputThirdTeamScoreInfo(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
-        System.out.println("'" + groupA.get(2).getTeamName() + "'" + "팀의 득점을 입력해주세요. (" + teamMatchRecord.getMatchesNum() + "Round)");
-        System.out.print("입력 : ");
-    }
-
-    public static void inputLastTeamScoreInfo(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
-        System.out.println("'" + groupA.get(3).getTeamName() + "'" + "팀의 득점을 입력해주세요. (" + teamMatchRecord.getMatchesNum() + "Round)");
-        System.out.print("입력 : ");
-    }
-
     public static void endMatchesRoundInfo(TeamMatchRecord teamMatchRecord) {
         System.out.println();
         System.out.println(teamMatchRecord.getMatchesNum() + ".Round가 종료되었습니다.");
@@ -116,4 +95,5 @@ public class GroupStageView {
         System.out.println("   " + 3 + " | " + groupA.get(2).getTeamName() + " |   " + teamMatchRecord.getMatchesNum() + "      " + teamMatchRecord.getWinMatches() + "      " + teamMatchRecord.getDrawMatches() + "      " + teamMatchRecord.getLoseMatches() + "      " + sumThirdScorePoint + "        " + sumLastScorePoint + "        " + teamMatchRecord.sumDifferenceBetweenGainsAndLosses(sumThirdScorePoint, sumLastScorePoint) + "        " + 0);
         System.out.println("   " + 4 + " | " + groupA.get(3).getTeamName() + " |   " + teamMatchRecord.getMatchesNum() + "      " + teamMatchRecord.getWinMatches() + "      " + teamMatchRecord.getDrawMatches() + "      " + teamMatchRecord.getLoseMatches() + "      " + sumLastScorePoint + "        " + sumThirdScorePoint + "        " + teamMatchRecord.sumDifferenceBetweenGainsAndLosses(sumLastScorePoint, sumThirdScorePoint) + "        " + 0);
     }
+
 }

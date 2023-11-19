@@ -132,4 +132,10 @@ public class TeamMatchRecord extends Team {
         this.loseMatches++;
     }
 
+    public void incrementWinPoint() {
+
+    }
+    public void incrementDrawPoint() {}
+    public void incrementLosePoint() {}
+
 }
