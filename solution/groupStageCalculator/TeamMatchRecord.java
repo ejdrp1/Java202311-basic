@@ -103,12 +103,19 @@ public class TeamMatchRecord extends Team {
         this.matchesNum = matchesNum;
     }
 
-    public void incrementMatchesNum() {
+    public void incrementMatchesNum() { // 경기수 증가
         this.matchesNum++;
     }
 
-    public int sumDifferenceBetweenGainsAndLosses(int scorePoint, int losePoint) {
+    public int sumDifferenceBetweenGainsAndLosses(int scorePoint, int losePoint) { // 득실차 계산
         return scorePoint - losePoint;
+    }
+
+    public void accumulateScorePointNum(int scorePoint) { // 득점 누적 값
+        this.scorePoint += scorePoint;
+    }
+    public void accumulateLosePointNum(int losePoint) {
+        this.losePoint += losePoint;
     }
 
 

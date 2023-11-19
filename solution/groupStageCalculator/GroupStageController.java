@@ -45,14 +45,26 @@ public class GroupStageController {
 
     private void groupStageProgress(List<Team> groupA) {
         TeamMatchRecord teamMatchRecord = new TeamMatchRecord();
+        teamMatchRecord.accumulateScorePointNum(1);
+        teamMatchRecord.accumulateLosePointNum(2);
         GroupStageView.groupStageProgressInfo(groupA, teamMatchRecord);
         teamMatchRecord.incrementMatchesNum();
-        test(groupA, teamMatchRecord);
+        testOne(groupA, teamMatchRecord);
     }
 
-    private void test(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
+    private void testOne(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
+        teamMatchRecord.accumulateScorePointNum(3);
+        teamMatchRecord.accumulateLosePointNum(1);
+        GroupStageView.groupStageProgressInfo(groupA, teamMatchRecord);
+        teamMatchRecord.incrementMatchesNum();
+        testTwo(groupA, teamMatchRecord);
+    }
+
+    private void testTwo(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
+        teamMatchRecord.accumulateScorePointNum(4);
+        teamMatchRecord.accumulateLosePointNum(1);
+        teamMatchRecord.incrementMatchesNum();
         GroupStageView.groupStageProgressInfo(groupA, teamMatchRecord);
     }
-
 
 }
