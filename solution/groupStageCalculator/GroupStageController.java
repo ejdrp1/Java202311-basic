@@ -60,14 +60,13 @@ public class GroupStageController {
     private void inputTeamScore(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
         teamMatchRecord.incrementMatchesNum();
 
-        List<Ranking> ranking = new ArrayList<>();
-
-
 
         GroupStageView.endMatchesRoundInfo(teamMatchRecord);
 //        경기 승 무 패 count 조건식 + 득실차 + 승점
 
+        GroupStageView.endGroupStageProgressInfo(groupA, teamMatchRecord, sumFirstScorePoint, sumSecondScorePoint, sumThirdScorePoint, sumLastScorePoint);
     }
+
 
 
 }
