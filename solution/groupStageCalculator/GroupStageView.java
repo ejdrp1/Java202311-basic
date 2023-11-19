@@ -37,9 +37,42 @@ public class GroupStageView {
                 " 팀이 A조에 편성되었습니다.");
     }
 
+    public static void introMatchesScheduleInfo(List<Team> groupA) {
+        System.out.println();
+        System.out.println("경기 일정입니다.");
+        System.out.println("1Round");
+        System.out.println(groupA.get(0).getTeamName() + " : " + groupA.get(1).getTeamName());
+        System.out.println(groupA.get(2).getTeamName() + " : " + groupA.get(3).getTeamName());
+        System.out.println();
+        System.out.println("2Round");
+        System.out.println(groupA.get(0).getTeamName() + " : " + groupA.get(2).getTeamName());
+        System.out.println(groupA.get(1).getTeamName() + " : " + groupA.get(3).getTeamName());
+        System.out.println();
+        System.out.println("3Round");
+        System.out.println(groupA.get(0).getTeamName() + " : " + groupA.get(3).getTeamName());
+        System.out.println(groupA.get(1).getTeamName() + " : " + groupA.get(2).getTeamName());
+        System.out.println();
+        System.out.println("4Round");
+        System.out.println(groupA.get(2).getTeamName() + " : " + groupA.get(1).getTeamName());
+        System.out.println(groupA.get(3).getTeamName() + " : " + groupA.get(0).getTeamName());
+        System.out.println();
+        System.out.println("5Round");
+        System.out.println(groupA.get(3).getTeamName() + " : " + groupA.get(1).getTeamName());
+        System.out.println(groupA.get(2).getTeamName() + " : " + groupA.get(0).getTeamName());
+        System.out.println();
+        System.out.println("6Round");
+        System.out.println(groupA.get(3).getTeamName() + " : " + groupA.get(2).getTeamName());
+        System.out.println(groupA.get(1).getTeamName() + " : " + groupA.get(0).getTeamName());
+    }
+
+    public static void nextMatchesInfo() {
+        System.out.println();
+        System.out.println("경기를 진행합니다.");
+    }
+
     public static void groupStageProgressInfo(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
         System.out.println();
-        System.out.println("A조 진행 상황");
+        System.out.println("A조 진행 상황 : " + teamMatchRecord.getMatchesNum() + ".Round");
         System.out.println("순위" + " | " + " 팀명 " + " | " + "경기수" + " | " + " 승 " + " | " + " 무 " + " | " + " 패 " + " | " + " 득점 " + " | " + " 실점 " + " | " + " 득실차 " + " | " + " 승점");
         System.out.println("   " + 1 + " | " + groupA.get(0).getTeamName() + " |   " + teamMatchRecord.getMatchesNum() + "      " + 0 + "      " + 0 + "      " + 0 + "      " + teamMatchRecord.getScorePoint() + "        " + teamMatchRecord.getLosePoint() + "        " + teamMatchRecord.sumDifferenceBetweenGainsAndLosses(teamMatchRecord.getScorePoint(), teamMatchRecord.getLosePoint()) + "        " + 0);
         System.out.println("   " + 2 + " | " + groupA.get(1).getTeamName() + " |   " + teamMatchRecord.getMatchesNum() + "      " + 0 + "      " + 0 + "      " + 0 + "      " + 0 + "        " + 0 + "        " + 0 + "        " + 0);
@@ -48,5 +81,39 @@ public class GroupStageView {
     }
 
 
+    public static void inputFirstTeamScoreInfo(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
+        System.out.println();
+        System.out.println("'" + groupA.get(0).getTeamName() + "'" + "팀의 득점을 입력해주세요. (" + teamMatchRecord.getMatchesNum() + "Round)");
+        System.out.print("입력 : ");
+    }
 
+    public static void inputSecondTeamScoreInfo(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
+        System.out.println("'" + groupA.get(1).getTeamName() + "'" + "팀의 득점을 입력해주세요. (" + teamMatchRecord.getMatchesNum() + "Round)");
+        System.out.print("입력 : ");
+    }
+
+    public static void inputThirdTeamScoreInfo(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
+        System.out.println("'" + groupA.get(2).getTeamName() + "'" + "팀의 득점을 입력해주세요. (" + teamMatchRecord.getMatchesNum() + "Round)");
+        System.out.print("입력 : ");
+    }
+
+    public static void inputLastTeamScoreInfo(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
+        System.out.println("'" + groupA.get(3).getTeamName() + "'" + "팀의 득점을 입력해주세요. (" + teamMatchRecord.getMatchesNum() + "Round)");
+        System.out.print("입력 : ");
+    }
+
+    public static void endMatchesRoundInfo(TeamMatchRecord teamMatchRecord) {
+        System.out.println();
+        System.out.println(teamMatchRecord.getMatchesNum() + ".Round가 종료되었습니다.");
+    }
+
+    public static void endGroupStageProgressInfo(List<Team> groupA, TeamMatchRecord teamMatchRecord, int sumFirstScorePoint, int sumSecondScorePoint, int sumThirdScorePoint, int sumLastScorePoint) {
+        System.out.println();
+        System.out.println("A조 진행 상황 : " + teamMatchRecord.getMatchesNum() + ".Round");
+        System.out.println("순위" + " | " + " 팀명 " + " | " + "경기수" + " | " + " 승 " + " | " + " 무 " + " | " + " 패 " + " | " + " 득점 " + " | " + " 실점 " + " | " + " 득실차 " + " | " + " 승점");
+        System.out.println("   " + 1 + " | " + groupA.get(0).getTeamName() + " |   " + teamMatchRecord.getMatchesNum() + "      " + 0 + "      " + 0 + "      " + 0 + "      " + sumFirstScorePoint + "        " + sumSecondScorePoint + "        " + teamMatchRecord.sumDifferenceBetweenGainsAndLosses(sumFirstScorePoint, sumSecondScorePoint) + "        " + 0);
+        System.out.println("   " + 2 + " | " + groupA.get(1).getTeamName() + " |   " + teamMatchRecord.getMatchesNum() + "      " + 0 + "      " + 0 + "      " + 0 + "      " + sumSecondScorePoint + "        " + sumFirstScorePoint + "        " + teamMatchRecord.sumDifferenceBetweenGainsAndLosses(sumSecondScorePoint, sumFirstScorePoint) + "        " + 0);
+        System.out.println("   " + 3 + " | " + groupA.get(2).getTeamName() + " |   " + teamMatchRecord.getMatchesNum() + "      " + 0 + "      " + 0 + "      " + 0 + "      " + sumThirdScorePoint + "        " + sumLastScorePoint + "        " + teamMatchRecord.sumDifferenceBetweenGainsAndLosses(sumThirdScorePoint, sumLastScorePoint) + "        " + 0);
+        System.out.println("   " + 4 + " | " + groupA.get(3).getTeamName() + " |   " + teamMatchRecord.getMatchesNum() + "      " + 0 + "      " + 0 + "      " + 0 + "      " + sumLastScorePoint + "        " + sumThirdScorePoint + "        " + teamMatchRecord.sumDifferenceBetweenGainsAndLosses(sumLastScorePoint, sumThirdScorePoint) + "        " + 0);
+    }
 }

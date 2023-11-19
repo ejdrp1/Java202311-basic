@@ -111,12 +111,16 @@ public class TeamMatchRecord extends Team {
         return scorePoint - losePoint;
     }
 
-    public void accumulateScorePointNum(int scorePoint) { // 득점 누적 값
+    public int accumulateScorePointNum(int scorePoint) { // 득점 누적 값
         this.scorePoint += scorePoint;
+        return scorePoint;
     }
-    public void accumulateLosePointNum(int losePoint) {
+    public int accumulateLosePointNum(int losePoint) {
         this.losePoint += losePoint;
+        return losePoint;
     }
+
+
 
 
 }
