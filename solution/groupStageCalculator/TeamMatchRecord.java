@@ -115,9 +115,8 @@ public class TeamMatchRecord extends Team {
         this.scorePoint += scorePoint;
         return scorePoint;
     }
-    public int accumulateLosePointNum(int losePoint) {
+    public void accumulateLosePointNum(int losePoint) {
         this.losePoint += losePoint;
-        return losePoint;
     }
 
 

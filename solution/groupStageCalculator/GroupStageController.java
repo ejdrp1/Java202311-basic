@@ -30,6 +30,7 @@ public class GroupStageController {
     }
 
     private void setGroupStageTeam() {
+        TeamMatchRecord teamMatchRecord = new TeamMatchRecord();
         String participateTeams = scanner.next();
         String[] participateTeamsArr = participateTeams.split(",");
         List<Team> groupA = new ArrayList<>(); // 조
@@ -40,29 +41,33 @@ public class GroupStageController {
             groupA.add(team);
         }
         GroupStageView.introSetGroupStageTeamInfo(groupA);
-        groupStageProgress(groupA);
+        GroupStageView.introMatchesScheduleInfo(groupA);
+        repeatGroupStageProgress(groupA, teamMatchRecord);
     }
 
-    private void groupStageProgress(List<Team> groupA) {
-        TeamMatchRecord teamMatchRecord = new TeamMatchRecord();
+    private void repeatGroupStageProgress(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
         GroupStageView.groupStageProgressInfo(groupA, teamMatchRecord); // 경기 진행 상황
-        GroupStageView.introMatchesScheduleInfo(groupA);
+        for (int i = 0; i < 6; i++) {
+            groupStageProgress(groupA , teamMatchRecord);
+        }
+
+    }
+
+    private void groupStageProgress(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
         GroupStageView.nextMatchesInfo();
         inputTeamScore(groupA, teamMatchRecord);
     }
 
     private void inputTeamScore(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
-//        경기 수 증가
         teamMatchRecord.incrementMatchesNum();
-//        첫번째, 두번째 팀 경기
+
         GroupStageView.inputFirstTeamScoreInfo(groupA, teamMatchRecord);
-        int sumFirstScorePoint = teamMatchRecord.accumulateScorePointNum(scanner.nextInt()); // 첫번째팀 득점
+        int sumFirstScorePoint = teamMatchRecord.accumulateScorePointNum(scanner.nextInt());
         teamMatchRecord.accumulateScorePointNum(sumFirstScorePoint);
         GroupStageView.inputSecondTeamScoreInfo(groupA, teamMatchRecord);
-        int sumSecondScorePoint = teamMatchRecord.accumulateScorePointNum(scanner.nextInt()); // 두번째팀 득점 == 첫번째팀 실점
+        int sumSecondScorePoint = teamMatchRecord.accumulateScorePointNum(scanner.nextInt());
         teamMatchRecord.accumulateScorePointNum(sumSecondScorePoint);
-        teamMatchRecord.accumulateLosePointNum(sumFirstScorePoint); // 두번째팀 실점
-//        득실차
+        teamMatchRecord.accumulateLosePointNum(sumFirstScorePoint);
         teamMatchRecord.sumDifferenceBetweenGainsAndLosses(sumFirstScorePoint, sumSecondScorePoint);
 
         GroupStageView.inputThirdTeamScoreInfo(groupA, teamMatchRecord);
