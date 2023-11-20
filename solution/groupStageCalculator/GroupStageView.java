@@ -1,33 +1,26 @@
 package groupStageCalculator;
 
 public class GroupStageView {
+    public static void introProgramInfo() {
+        System.out.println();
+        System.out.println("안녕하세요!");
+        System.out.println("축구에서 경기 기록에 따라 결과를 순위로 출력해주는 프로그램입니다.");
+        System.out.println("각 4개의 팀이 한 개의 조에 편성됩니다.");
+    }
 
+    public static void selectProgramStartNumInfo() {
+        System.out.println();
+        System.out.println("1.시작하기 2.종료하기");
+        System.out.print("입력 : ");
+    }
 
+    public static void endProgramInfo() {
+        System.out.println();
+        System.out.println("프로그램이 종료됩니다. 이용해주셔서 감사합니다!");
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public static void introTeamDataInfo() {
+    }
 
 
 //    public static void introSetGroupStageTeamInfo(List<Team> groupA) {
