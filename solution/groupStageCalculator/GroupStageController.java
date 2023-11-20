@@ -40,31 +40,30 @@ public class GroupStageController {
             team.setTeamName(teamNames);
             groupA.add(team);
         }
-        GroupStageView.introSetGroupStageTeamInfo(groupA);
+        GroupStageView.introSetGroupStageTeamInfo(groupA); // 조 편성 msg
         repeatGroupStageProgress(groupA, teamMatchRecord);
     }
 
     private void repeatGroupStageProgress(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
         GroupStageView.groupStageProgressInfo(groupA, teamMatchRecord); // 경기 진행 상황
-        GroupStageView.introMatchesScheduleInfo(groupA);
+        GroupStageView.introMatchesScheduleInfo(groupA); // 경기 일정 msg
         for (int i = 0; i < 6; i++) {
             groupStageProgress(groupA, teamMatchRecord);
         }
     }
 
     private void groupStageProgress(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
-        GroupStageView.nextMatchesInfo();
+        GroupStageView.nextMatchesInfo(); // 경기 진행 msg
         inputTeamScore(groupA, teamMatchRecord);
     }
 
     private void inputTeamScore(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
-        teamMatchRecord.incrementMatchesNum();
+        teamMatchRecord.incrementMatchesNum(); // 경기수 증가
 
 
-        GroupStageView.endMatchesRoundInfo(teamMatchRecord);
+        GroupStageView.endMatchesRoundInfo(teamMatchRecord); // 라운드 종료 msg
 //        경기 승 무 패 count 조건식 + 득실차 + 승점
 
-        GroupStageView.endGroupStageProgressInfo(groupA, teamMatchRecord, sumFirstScorePoint, sumSecondScorePoint, sumThirdScorePoint, sumLastScorePoint);
     }
 
 
