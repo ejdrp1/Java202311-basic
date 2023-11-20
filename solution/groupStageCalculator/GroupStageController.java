@@ -48,7 +48,7 @@ public class GroupStageController {
 
     private void repeatGroupStageProgress(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
         GroupStageView.groupStageProgressInfo(groupA, teamMatchRecord); // 경기 진행 상황
-        GroupStageView.introMatchesScheduleInfo(groupA); // 경기 일정 msg
+
         for (int i = 0; i < 6; i++) {
             groupStageProgress(groupA, teamMatchRecord);
         }

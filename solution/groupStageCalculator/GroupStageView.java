@@ -37,31 +37,6 @@ public class GroupStageView {
                 " 팀이 A조에 편성되었습니다.");
     }
 
-    public static void introMatchesScheduleInfo(List<Team> groupA) {
-        System.out.println();
-        System.out.println("경기 일정입니다.");
-        System.out.println("1Round");
-        System.out.println();
-        System.out.println("2Round");
-        System.out.println(groupA.get(0).getTeamName() + " : " + groupA.get(2).getTeamName());
-        System.out.println(groupA.get(1).getTeamName() + " : " + groupA.get(3).getTeamName());
-        System.out.println();
-        System.out.println("3Round");
-        System.out.println(groupA.get(0).getTeamName() + " : " + groupA.get(3).getTeamName());
-        System.out.println(groupA.get(1).getTeamName() + " : " + groupA.get(2).getTeamName());
-        System.out.println();
-        System.out.println("4Round");
-        System.out.println(groupA.get(2).getTeamName() + " : " + groupA.get(1).getTeamName());
-        System.out.println(groupA.get(3).getTeamName() + " : " + groupA.get(0).getTeamName());
-        System.out.println();
-        System.out.println("5Round");
-        System.out.println(groupA.get(3).getTeamName() + " : " + groupA.get(1).getTeamName());
-        System.out.println(groupA.get(2).getTeamName() + " : " + groupA.get(0).getTeamName());
-        System.out.println();
-        System.out.println("6Round");
-        System.out.println(groupA.get(3).getTeamName() + " : " + groupA.get(2).getTeamName());
-        System.out.println(groupA.get(1).getTeamName() + " : " + groupA.get(0).getTeamName());
-    }
 
     public static void nextMatchesInfo() {
         System.out.println();
