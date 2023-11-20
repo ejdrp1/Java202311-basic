@@ -21,7 +21,6 @@ public class Ranking {
         return firstPlace;
     }
 
-
     public void setFirstPlace(int firstPlace) {
         this.firstPlace = firstPlace;
     }
