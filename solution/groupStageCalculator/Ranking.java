@@ -48,5 +48,4 @@ public class Ranking {
     public void setLastPlace(int lastPlace) {
         this.lastPlace = lastPlace;
     }
-
 }

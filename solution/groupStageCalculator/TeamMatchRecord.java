@@ -44,7 +44,6 @@ public class TeamMatchRecord extends Team {
 
     public void setWinMatches(int winMatches) {
         this.winMatches = winMatches;
-        winMatches++;
     }
 
     public int getDrawMatches() {
@@ -102,40 +101,4 @@ public class TeamMatchRecord extends Team {
     public void setMatchesNum(int matchesNum) {
         this.matchesNum = matchesNum;
     }
-
-    public void incrementMatchesNum() { // 경기수 증가
-        this.matchesNum++;
-    }
-
-    public int sumDifferenceBetweenGainsAndLosses(int scorePoint, int losePoint) { // 득실차 계산
-        return scorePoint - losePoint;
-    }
-
-    public int accumulateScorePointNum(int scorePoint) { // 득점 누적 값
-        this.scorePoint += scorePoint;
-        return scorePoint;
-    }
-
-    public void accumulateLosePointNum(int losePoint) {
-        this.losePoint += losePoint;
-    }
-
-    public void incrementWinMatches() {
-        this.winMatches++;
-    }
-
-    public void incrementDrawMatches() {
-        this.drawMatches++;
-    }
-
-    public void incrementLoseMatches() {
-        this.loseMatches++;
-    }
-
-    public void incrementWinPoint() {
-
-    }
-    public void incrementDrawPoint() {}
-    public void incrementLosePoint() {}
-
 }
