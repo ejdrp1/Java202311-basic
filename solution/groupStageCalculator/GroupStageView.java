@@ -28,12 +28,12 @@ public class GroupStageView {
         System.out.print("입력 : ");
     }
 
-    public static void introSetGroupStageTeamInfo(List<Team> groupA, int[] teamIndex) {
+    public static void introSetGroupStageTeamInfo(List<Team> groupA) {
         System.out.println();
-        System.out.println("'" + groupA.get(teamIndex[0]).getTeamName() + "', '" +
-                groupA.get(teamIndex[1]).getTeamName() + "', '" +
-                groupA.get(teamIndex[2]).getTeamName() + "', '" +
-                groupA.get(teamIndex[3]).getTeamName() + "'" +
+        System.out.println("'" + groupA.get(0).getTeamName() + "', '" +
+                groupA.get(1).getTeamName() + "', '" +
+                groupA.get(2).getTeamName() + "', '" +
+                groupA.get(3).getTeamName() + "'" +
                 " 팀이 A조에 편성되었습니다.");
     }
 
@@ -78,18 +78,6 @@ public class GroupStageView {
         System.out.println("   " + 4 + " | " + groupA.get(3).getTeamName() + " |   " + teamMatchRecord.getMatchesNum() + "      " + 0 + "      " + 0 + "      " + 0 + "      " + teamMatchRecord.getScorePoint() + "        " + teamMatchRecord.getLosePoint() + "        " + teamMatchRecord.sumDifferenceBetweenGainsAndLosses(teamMatchRecord.getScorePoint(), teamMatchRecord.getLosePoint()) + "        " + 0);
     }
 
-    public static void inputFirstMatchesScoreNumInfo(List<Team> groupA, int[] teamIndex) {
-        System.out.println();
-        System.out.println(groupA.get(teamIndex[0]).getTeamName() + " : " + groupA.get(teamIndex[1]).getTeamName());
-        System.out.println("ex). 3, 2");
-        System.out.print("입력 : ");
-    }
-
-    public static void inputSecondMatchesScoreNumInfo(List<Team> groupA, int[] teamIndex) {
-        System.out.println();
-        System.out.println(groupA.get(teamIndex[2]).getTeamName() + " : " + groupA.get(teamIndex[3]).getTeamName());
-        System.out.print("입력 : ");
-    }
 
     public static void endGroupStageProgressInfo(List<Team> groupA, TeamMatchRecord teamMatchRecord, int sumFirstScorePoint, int sumSecondScorePoint, int sumThirdScorePoint, int sumLastScorePoint) {
         System.out.println();
