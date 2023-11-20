@@ -1,7 +1,8 @@
 package groupStageCalculator;
 
-public class TeamMatchRecord extends Team {
+public class TeamMatchRecord {
 
+    private String teamName;
     private int winMatches = 0; // 승
     private int drawMatches = 0; // 무
     private int loseMatches = 0; // 패
@@ -10,12 +11,14 @@ public class TeamMatchRecord extends Team {
     private int differenceBetweenGainsAndLosses = 0; // 득실차
     private int point = 0; // 승점
     private int matchesNum = 0; // 경기수
+    private String[] teamInfo = {};
 
 
     public TeamMatchRecord() {
     }
 
-    public TeamMatchRecord(int winMatches, int drawMatches, int loseMatches, int scorePoint, int losePoint, int differenceBetweenGainsAndLosses, int point, int matchesNum) {
+    public TeamMatchRecord(String teamName, int winMatches, int drawMatches, int loseMatches, int scorePoint, int losePoint, int differenceBetweenGainsAndLosses, int point, int matchesNum, String[] teamInfo) {
+        this.teamName = teamName;
         this.winMatches = winMatches;
         this.drawMatches = drawMatches;
         this.loseMatches = loseMatches;
@@ -24,18 +27,19 @@ public class TeamMatchRecord extends Team {
         this.differenceBetweenGainsAndLosses = differenceBetweenGainsAndLosses;
         this.point = point;
         this.matchesNum = matchesNum;
+        this.teamInfo = teamInfo;
     }
 
-    public TeamMatchRecord(String teamName, int winMatches, int drawMatches, int loseMatches, int scorePoint, int losePoint, int differenceBetweenGainsAndLosses, int point, int matchesNum) {
-        super(teamName);
-        this.winMatches = winMatches;
-        this.drawMatches = drawMatches;
-        this.loseMatches = loseMatches;
-        this.scorePoint = scorePoint;
-        this.losePoint = losePoint;
-        this.differenceBetweenGainsAndLosses = differenceBetweenGainsAndLosses;
-        this.point = point;
-        this.matchesNum = matchesNum;
+    public String[] getTeamInfo() {
+        return teamInfo;
+    }
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
     }
 
     public int getWinMatches() {
@@ -100,5 +104,9 @@ public class TeamMatchRecord extends Team {
 
     public void setMatchesNum(int matchesNum) {
         this.matchesNum = matchesNum;
+    }
+
+    public void setTeamInfo(String[] teamInfo) {
+        this.teamInfo = teamInfo;
     }
 }

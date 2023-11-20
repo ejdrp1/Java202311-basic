@@ -20,6 +20,14 @@ public class GroupStageView {
     }
 
     public static void introTeamDataInfo() {
+        System.out.println();
+        System.out.println("팀 4개와 각 팀의 성적을 입력해주세요.");
+        System.out.println("( ex. 팀이름, 경기수, 승, 무, 패, 득점, 실점 )");
+        System.out.println("( ex. 토트넘,6,5,0,1,20,6 )");
+    }
+
+    public static void repeatIntroTeamDataInfo() {
+        System.out.print("입력 : ");
     }
 
 
