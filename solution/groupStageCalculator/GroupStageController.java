@@ -68,7 +68,7 @@ public class GroupStageController {
 //      1. 팀 스코어 입력
         teamMatchRecord.incrementMatchesNum(); // 경기수 증가
 
-        inputTeamScoreNum(groupA, teamIndex); // 팀 스코어 입력
+        inputTeamScoreNum(groupA, teamMatchRecord, teamIndex); // 팀 스코어 입력
 
 
 //      2. 경기 승 무 패 count 조건식 + 득실차 + 승점
@@ -77,27 +77,30 @@ public class GroupStageController {
     }
 
 
-    private void inputTeamScoreNum(List<Team> groupA, int[] teamIndex) {
+    private void inputTeamScoreNum(List<Team> groupA, TeamMatchRecord teamMatchRecord, int[] teamIndex) {
         GroupStageView.inputFirstMatchesScoreNumInfo(groupA, teamIndex);
         String firstTeamScore = scanner.next();
         GroupStageView.inputSecondMatchesScoreNumInfo(groupA, teamIndex);
         String secondTeamScore = scanner.next();
-        teamScoreNumCalculator(firstTeamScore, secondTeamScore);
+        teamScoreNumCalculator(firstTeamScore, secondTeamScore, teamMatchRecord, teamIndex, groupA);
     }
 
-    private void teamScoreNumCalculator(String firstTeamScore, String secondTeamScore) {
-//        String => int 변환
+    private void teamScoreNumCalculator(String firstTeamScore, String secondTeamScore, TeamMatchRecord teamMatchRecord, int[] teamIndex, List<Team> groupA) {
+//        1. String => int 변환
         int[] firstScoreNum = new int[firstTeamScore.length() - 1];
         int[] secondScoreNum = new int[secondTeamScore.length() - 1];
-
+//        2. 정수형 배열에 담기
         String[] firstScoreArr = firstTeamScore.split(",");
         String[] secondScoreArr = secondTeamScore.split(",");
         for (int i = 0; i < firstScoreArr.length; i++) {
             firstScoreNum[i] = Integer.parseInt(firstScoreArr[i]);
             secondScoreNum[i] = Integer.parseInt(secondScoreArr[i]);
         }
-        System.out.println(firstScoreNum[0]);
-        System.out.println(firstScoreNum[1]);
+//        3. index 값 비교
+        if (firstScoreNum[0] > firstScoreNum[1]) { // 첫번째팀이 승리한다면
+//            1. firstScoreNum[0] == 득점을 누적
+        }
+
 
     }
 
