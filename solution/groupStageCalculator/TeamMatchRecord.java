@@ -11,13 +11,12 @@ public class TeamMatchRecord {
     private int differenceBetweenGainsAndLosses = 0; // 득실차
     private int point = 0; // 승점
     private int matchesNum = 0; // 경기수
-    private String[] teamInfo = {};
 
 
     public TeamMatchRecord() {
     }
 
-    public TeamMatchRecord(String teamName, int winMatches, int drawMatches, int loseMatches, int scorePoint, int losePoint, int differenceBetweenGainsAndLosses, int point, int matchesNum, String[] teamInfo) {
+    public TeamMatchRecord(String teamName, int winMatches, int drawMatches, int loseMatches, int scorePoint, int losePoint, int differenceBetweenGainsAndLosses, int point, int matchesNum) {
         this.teamName = teamName;
         this.winMatches = winMatches;
         this.drawMatches = drawMatches;
@@ -27,11 +26,6 @@ public class TeamMatchRecord {
         this.differenceBetweenGainsAndLosses = differenceBetweenGainsAndLosses;
         this.point = point;
         this.matchesNum = matchesNum;
-        this.teamInfo = teamInfo;
-    }
-
-    public String[] getTeamInfo() {
-        return teamInfo;
     }
 
     public String getTeamName() {
@@ -106,7 +100,8 @@ public class TeamMatchRecord {
         this.matchesNum = matchesNum;
     }
 
-    public void setTeamInfo(String[] teamInfo) {
-        this.teamInfo = teamInfo;
+    public static int sumDifferenceBetweenGainsAndLosses(int scorePoint, int losePoint) {
+        return scorePoint - losePoint;
     }
+
 }

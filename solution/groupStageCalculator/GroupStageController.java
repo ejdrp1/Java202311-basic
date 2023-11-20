@@ -1,10 +1,7 @@
 package groupStageCalculator;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class GroupStageController {
 
@@ -34,26 +31,36 @@ public class GroupStageController {
 
     private void inputTeamData() {
         GroupStageView.introTeamDataInfo();
-        TeamMatchRecord teamMatchRecord;
         List<TeamMatchRecord> groupA = new ArrayList<>();
-
+        TeamMatchRecord teamMatchRecord = null;
 
         for (int i = 0; i < 4; i++) {
             GroupStageView.repeatIntroTeamDataInfo();
+
             String inputTeamInfo = scanner.next();
-            String[] inputTeamInfoArr = inputTeamInfo.split(", ");
-            System.out.println("입력한 값 : " + Arrays.toString(inputTeamInfoArr));
-            for (String teams : inputTeamInfoArr) {
-                teamMatchRecord = new TeamMatchRecord();
-                teamMatchRecord.setTeamInfo(inputTeamInfoArr);
-                groupA.add(teamMatchRecord);
-            }
+            String[] inputTeamInfoArr = inputTeamInfo.split(",");
+
+            teamMatchRecord = new TeamMatchRecord();
+            teamMatchRecord.setTeamName(inputTeamInfoArr[0]);
+            teamMatchRecord.setMatchesNum(Integer.parseInt(inputTeamInfoArr[1]));
+            teamMatchRecord.setWinMatches(Integer.parseInt(inputTeamInfoArr[2]));
+            teamMatchRecord.setDrawMatches(Integer.parseInt(inputTeamInfoArr[3]));
+            teamMatchRecord.setLoseMatches(Integer.parseInt(inputTeamInfoArr[4]));
+            teamMatchRecord.setScorePoint(Integer.parseInt(inputTeamInfoArr[5]));
+            teamMatchRecord.setLosePoint(Integer.parseInt(inputTeamInfoArr[6]));
+
+            groupA.add(teamMatchRecord);
         }
 
-        System.out.println("첫번째팀 : " + Arrays.toString(groupA.get(0).getTeamInfo()));
-        System.out.println("두번째팀 : " + Arrays.toString(groupA.get(1).getTeamInfo()));
-        System.out.println("세번째팀 : " + Arrays.toString(groupA.get(2).getTeamInfo()));
-        System.out.println("네번째팀 : " + Arrays.toString(groupA.get(3).getTeamInfo()));
+        GroupStageView.successRegisterTeamInfo();
+        groupStageFinallyResult(groupA);
+    }
+
+    private void groupStageFinallyResult(List<TeamMatchRecord> groupA) {
+        GroupStageView.groupStageFinallyResultInfo();
+
+
+        GroupStageView.endGroupStageProgressInfo(groupA);
     }
 
 

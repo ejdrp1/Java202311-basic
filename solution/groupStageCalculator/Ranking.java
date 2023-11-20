@@ -2,10 +2,10 @@ package groupStageCalculator;
 
 public class Ranking {
 
-    private int firstPlace;
-    private int secondPlace;
-    private int thirdPlace;
-    private int lastPlace;
+    private int firstPlace = 1;
+    private int secondPlace = 2;
+    private int thirdPlace = 3;
+    private int lastPlace = 4;
 
     public Ranking() {
     }
@@ -20,6 +20,7 @@ public class Ranking {
     public int getFirstPlace() {
         return firstPlace;
     }
+
 
     public void setFirstPlace(int firstPlace) {
         this.firstPlace = firstPlace;
