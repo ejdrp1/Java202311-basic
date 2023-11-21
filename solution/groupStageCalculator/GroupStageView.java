@@ -23,7 +23,7 @@ public class GroupStageView {
 
     public static void introTeamDataInfo() {
         System.out.println();
-        System.out.println("팀 4개와 각 팀의 성적을 입력해주세요.");
+        System.out.println("팀 4개와 각 팀의 성적을 입력해주세요. (띄어쓰기 주의)");
         System.out.println("( ex. 팀이름, 경기수, 승, 무, 패, 득점, 실점 )");
         System.out.println("( ex. 토트넘,6,5,0,1,20,6 )");
     }
@@ -42,30 +42,6 @@ public class GroupStageView {
         System.out.println("최종 결과 입니다!");
     }
 
-
-//    public static void introSetGroupStageTeamInfo(List<Team> groupA) {
-//        System.out.println();
-//        System.out.println("'" + groupA.get(0).getTeamName() + "', '" +
-//                groupA.get(1).getTeamName() + "', '" +
-//                groupA.get(2).getTeamName() + "', '" +
-//                groupA.get(3).getTeamName() + "'" +
-//                " 팀이 A조에 편성되었습니다.");
-//    }
-
-
-
-
-//    public static void groupStageProgressInfo(List<Team> groupA, TeamMatchRecord teamMatchRecord) {
-//        System.out.println();
-//        System.out.println("A조 진행 상황 : " + teamMatchRecord.getMatchesNum() + ".Round");
-//        System.out.println("순위" + " | " + " 팀명 " + " | " + "경기수" + " | " + " 승 " + " | " + " 무 " + " | " + " 패 " + " | " + " 득점 " + " | " + " 실점 " + " | " + " 득실차 " + " | " + " 승점");
-//        System.out.println("   " + 1 + " | " + groupA.get(0).getTeamName() + " |   " + teamMatchRecord.getMatchesNum() + "      " + 0 + "      " + 0 + "      " + 0 + "      " + teamMatchRecord.getScorePoint() + "        " + teamMatchRecord.getLosePoint() + "        " + teamMatchRecord.sumDifferenceBetweenGainsAndLosses(teamMatchRecord.getScorePoint(), teamMatchRecord.getLosePoint()) + "        " + 0);
-//        System.out.println("   " + 2 + " | " + groupA.get(1).getTeamName() + " |   " + teamMatchRecord.getMatchesNum() + "      " + 0 + "      " + 0 + "      " + 0 + "      " + teamMatchRecord.getScorePoint() + "        " + teamMatchRecord.getLosePoint() + "        " + teamMatchRecord.sumDifferenceBetweenGainsAndLosses(teamMatchRecord.getScorePoint(), teamMatchRecord.getLosePoint()) + "        " + 0);
-//        System.out.println("   " + 3 + " | " + groupA.get(2).getTeamName() + " |   " + teamMatchRecord.getMatchesNum() + "      " + 0 + "      " + 0 + "      " + 0 + "      " + teamMatchRecord.getScorePoint() + "        " + teamMatchRecord.getLosePoint() + "        " + teamMatchRecord.sumDifferenceBetweenGainsAndLosses(teamMatchRecord.getScorePoint(), teamMatchRecord.getLosePoint()) + "        " + 0);
-//        System.out.println("   " + 4 + " | " + groupA.get(3).getTeamName() + " |   " + teamMatchRecord.getMatchesNum() + "      " + 0 + "      " + 0 + "      " + 0 + "      " + teamMatchRecord.getScorePoint() + "        " + teamMatchRecord.getLosePoint() + "        " + teamMatchRecord.sumDifferenceBetweenGainsAndLosses(teamMatchRecord.getScorePoint(), teamMatchRecord.getLosePoint()) + "        " + 0);
-//    }
-
-
     public static void endGroupStageProgressInfo(List<TeamMatchRecord> groupA) {
         System.out.println();
         System.out.println("순위" + " | " + " 팀명 " + " | " + "경기수" + " | " + " 승 " + " | " + " 무 " + " | " + " 패 " + " | " + " 득점 " + " | " + " 실점 " + " | " + " 득실차 " + " | " + " 승점");
@@ -74,19 +50,6 @@ public class GroupStageView {
         System.out.println("   " + 3 + " | " + groupA.get(2).getTeamName() + " |   " + groupA.get(2).getMatchesNum() + "      " + groupA.get(2).getWinMatches() + "      " + groupA.get(2).getDrawMatches() + "      " + groupA.get(2).getLoseMatches() + "      " + groupA.get(2).getScorePoint() + "        " + groupA.get(2).getLosePoint() + "        " + groupA.get(2).getDifferenceBetweenGainsAndLosses() + "        " + groupA.get(2).getPoint());
         System.out.println("   " + 4 + " | " + groupA.get(3).getTeamName() + " |   " + groupA.get(3).getMatchesNum() + "      " + groupA.get(3).getWinMatches() + "      " + groupA.get(3).getDrawMatches() + "      " + groupA.get(3).getLoseMatches() + "      " + groupA.get(3).getScorePoint() + "        " + groupA.get(3).getLosePoint() + "        " + groupA.get(3).getDifferenceBetweenGainsAndLosses() + "        " + groupA.get(3).getPoint());
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

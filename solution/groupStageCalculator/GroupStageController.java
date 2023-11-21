@@ -60,7 +60,7 @@ public class GroupStageController {
             groupA.add(teamMatchRecord);
         }
 //        정보 입력이 모두 끝난 시점
-//        승점 비교해야 됨
+//        승점 비교하여 순위 재배열 해야함
 
 
 
