@@ -156,20 +156,8 @@ public class TeamMatchRecord {
         return point;
     }
 
-    public int[] comparePointCalculator(int point) {
+    public void comparePointCalculator(int[] point) {
 
-        int[] resultPointArr = new int[4];
-
-        for (int i = 0; i < resultPointArr.length - 1; i++) {
-            for (int j = i + 1; j < resultPointArr.length; j++) {
-                if (resultPointArr[i] > resultPointArr[j]) {
-                    int anyValue = resultPointArr[i];
-                    resultPointArr[i] = resultPointArr[j];
-                    resultPointArr[j] = anyValue;
-                }
-            }
-        }
-        return resultPointArr;
     }
 
 
