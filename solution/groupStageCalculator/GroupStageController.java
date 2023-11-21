@@ -57,16 +57,18 @@ public class GroupStageController {
                     Integer.parseInt(inputTeamInfoArr[3]),
                     Integer.parseInt(inputTeamInfoArr[4])
             );
-
             groupA.add(teamMatchRecord);
         }
 
-        GroupStageView.successRegisterTeamInfo();
+        GroupStageView.successRegisterTeamInfo(); // 정보 등록 완료 msg
         groupStageFinallyResult(groupA);
     }
 
     private void groupStageFinallyResult(List<TeamMatchRecord> groupA) {
-        GroupStageView.groupStageFinallyResultInfo();
+        GroupStageView.groupStageFinallyResultInfo(); // 최종 결과 msg
+
+
+
         GroupStageView.endGroupStageProgressInfo(groupA);
     }
 

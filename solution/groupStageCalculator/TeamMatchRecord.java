@@ -1,5 +1,7 @@
 package groupStageCalculator;
 
+import java.util.Arrays;
+
 public class TeamMatchRecord {
 
     private String teamName;
@@ -14,12 +16,13 @@ public class TeamMatchRecord {
     private int winPoints = 0;
     private int drawPoints = 0;
     private int losePoints = 0;
+    private int comparePointResult = 0;
 
 
     public TeamMatchRecord() {
     }
 
-    public TeamMatchRecord(String teamName, int winMatches, int drawMatches, int loseMatches, int scorePoint, int losePoint, int differenceBetweenGainsAndLosses, int point, int matchesNum) {
+    public TeamMatchRecord(String teamName, int winMatches, int drawMatches, int loseMatches, int scorePoint, int losePoint, int differenceBetweenGainsAndLosses, int point, int matchesNum, int winPoints, int drawPoints, int losePoints, int comparePointResult) {
         this.teamName = teamName;
         this.winMatches = winMatches;
         this.drawMatches = drawMatches;
@@ -29,6 +32,18 @@ public class TeamMatchRecord {
         this.differenceBetweenGainsAndLosses = differenceBetweenGainsAndLosses;
         this.point = point;
         this.matchesNum = matchesNum;
+        this.winPoints = winPoints;
+        this.drawPoints = drawPoints;
+        this.losePoints = losePoints;
+        this.comparePointResult = comparePointResult;
+    }
+
+    public int getComparePointResult() {
+        return comparePointResult;
+    }
+
+    public void setComparePointResult(int comparePointResult) {
+        this.comparePointResult = comparePointResult;
     }
 
     public String getTeamName() {
@@ -140,5 +155,22 @@ public class TeamMatchRecord {
         point = getWinPoints() + getDrawPoints() + getLosePoints();
         return point;
     }
+
+    public int[] comparePointCalculator(int point) {
+
+        int[] resultPointArr = new int[4];
+
+        for (int i = 0; i < resultPointArr.length - 1; i++) {
+            for (int j = i + 1; j < resultPointArr.length; j++) {
+                if (resultPointArr[i] > resultPointArr[j]) {
+                    int anyValue = resultPointArr[i];
+                    resultPointArr[i] = resultPointArr[j];
+                    resultPointArr[j] = anyValue;
+                }
+            }
+        }
+        return resultPointArr;
+    }
+
 
 }
