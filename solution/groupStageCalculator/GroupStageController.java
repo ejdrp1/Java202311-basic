@@ -48,19 +48,26 @@ public class GroupStageController {
             teamMatchRecord.setLoseMatches(Integer.parseInt(inputTeamInfoArr[4]));
             teamMatchRecord.setScorePoint(Integer.parseInt(inputTeamInfoArr[5]));
             teamMatchRecord.setLosePoint(Integer.parseInt(inputTeamInfoArr[6]));
+            teamMatchRecord.sumDifferenceBetweenGainsAndLosses(
+                    Integer.parseInt(inputTeamInfoArr[5]),
+                    Integer.parseInt(inputTeamInfoArr[6])
+            );
+            teamMatchRecord.pointCalculator(
+                    Integer.parseInt(inputTeamInfoArr[2]),
+                    Integer.parseInt(inputTeamInfoArr[3]),
+                    Integer.parseInt(inputTeamInfoArr[4])
+            );
 
             groupA.add(teamMatchRecord);
         }
 
         GroupStageView.successRegisterTeamInfo();
-        groupStageFinallyResult(groupA, teamMatchRecord);
+        groupStageFinallyResult(groupA);
     }
 
-    private void groupStageFinallyResult(List<TeamMatchRecord> groupA, TeamMatchRecord teamMatchRecord) {
+    private void groupStageFinallyResult(List<TeamMatchRecord> groupA) {
         GroupStageView.groupStageFinallyResultInfo();
-
-
-//        GroupStageView.endGroupStageProgressInfo(groupA, resultPoint);
+        GroupStageView.endGroupStageProgressInfo(groupA);
     }
 
 

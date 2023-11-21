@@ -11,9 +11,9 @@ public class TeamMatchRecord {
     private int differenceBetweenGainsAndLosses = 0; // 득실차
     private int point = 0; // 승점
     private int matchesNum = 0; // 경기수
-    private int winPoints;
-    private int drawPoints;
-    private int losePoints;
+    private int winPoints = 0;
+    private int drawPoints = 0;
+    private int losePoints = 0;
 
 
     public TeamMatchRecord() {
@@ -103,12 +103,13 @@ public class TeamMatchRecord {
         this.matchesNum = matchesNum;
     }
 
-    public static int sumDifferenceBetweenGainsAndLosses(int scorePoint, int losePoint) {
-        return scorePoint - losePoint;
+    public int sumDifferenceBetweenGainsAndLosses(int scorePoint, int losePoint) {
+        differenceBetweenGainsAndLosses = scorePoint - losePoint;
+        return differenceBetweenGainsAndLosses;
     }
 
     public void setWinPoints(int winMatches) {
-        winPoints = this.winMatches * 3;
+        winPoints = winMatches * 3;
     }
 
     public int getWinPoints() {
@@ -116,7 +117,7 @@ public class TeamMatchRecord {
     }
 
     public void setDrawPoints(int drawMatches) {
-        drawPoints = this.drawMatches;
+        drawPoints = drawMatches;
     }
 
     public int getDrawPoints() {
@@ -124,11 +125,11 @@ public class TeamMatchRecord {
     }
 
     public void setLosePoints(int loseMatches) {
-        losePoints = 0;
+        losePoints = loseMatches;
     }
 
     public int getLosePoints() {
-        return losePoints;
+        return 0;
     }
 
 
@@ -136,7 +137,8 @@ public class TeamMatchRecord {
         setWinPoints(winMatches);
         setDrawPoints(drawMatches);
         setLosePoints(loseMatches);
-        return getWinPoints() + getDrawPoints() + getLosePoint();
+        point = getWinPoints() + getDrawPoints() + getLosePoints();
+        return point;
     }
 
 }
