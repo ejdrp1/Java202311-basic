@@ -104,4 +104,8 @@ public class TeamMatchRecord {
         return scorePoint - losePoint;
     }
 
+    public void pointCalculator(int winMatches, int drawMatches, int loseMatches, int scorePoint) {
+
+    }
+
 }
