@@ -61,12 +61,7 @@ public class GroupStageController {
         }
 //        정보 입력이 모두 끝난 시점
 //        승점 비교해야 됨
-        int[] comparePointArr = {groupA.get(0).getPoint(),
-                                 groupA.get(1).getPoint(),
-                                 groupA.get(2).getPoint(),
-                                 groupA.get(3).getPoint()};
-//        입력 받은 각 팀의 승점을 배열로 받고 계산
-        teamMatchRecord.comparePointCalculator(comparePointArr);
+
 
 
 
