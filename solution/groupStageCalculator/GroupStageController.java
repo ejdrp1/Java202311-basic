@@ -53,14 +53,14 @@ public class GroupStageController {
         }
 
         GroupStageView.successRegisterTeamInfo();
-        groupStageFinallyResult(groupA);
+        groupStageFinallyResult(groupA, teamMatchRecord);
     }
 
-    private void groupStageFinallyResult(List<TeamMatchRecord> groupA) {
+    private void groupStageFinallyResult(List<TeamMatchRecord> groupA, TeamMatchRecord teamMatchRecord) {
         GroupStageView.groupStageFinallyResultInfo();
 
 
-        GroupStageView.endGroupStageProgressInfo(groupA);
+//        GroupStageView.endGroupStageProgressInfo(groupA, resultPoint);
     }
 
 

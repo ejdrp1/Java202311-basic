@@ -11,6 +11,9 @@ public class TeamMatchRecord {
     private int differenceBetweenGainsAndLosses = 0; // 득실차
     private int point = 0; // 승점
     private int matchesNum = 0; // 경기수
+    private int winPoints;
+    private int drawPoints;
+    private int losePoints;
 
 
     public TeamMatchRecord() {
@@ -104,8 +107,36 @@ public class TeamMatchRecord {
         return scorePoint - losePoint;
     }
 
-    public void pointCalculator(int winMatches, int drawMatches, int loseMatches, int scorePoint) {
+    public void setWinPoints(int winMatches) {
+        winPoints = this.winMatches * 3;
+    }
 
+    public int getWinPoints() {
+        return winPoints;
+    }
+
+    public void setDrawPoints(int drawMatches) {
+        drawPoints = this.drawMatches;
+    }
+
+    public int getDrawPoints() {
+        return drawPoints;
+    }
+
+    public void setLosePoints(int loseMatches) {
+        losePoints = 0;
+    }
+
+    public int getLosePoints() {
+        return losePoints;
+    }
+
+
+    public int pointCalculator(int winMatches, int drawMatches, int loseMatches) {
+        setWinPoints(winMatches);
+        setDrawPoints(drawMatches);
+        setLosePoints(loseMatches);
+        return getWinPoints() + getDrawPoints() + getLosePoint();
     }
 
 }

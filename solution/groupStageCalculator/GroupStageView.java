@@ -66,7 +66,7 @@ public class GroupStageView {
 //    }
 
 
-    public static void endGroupStageProgressInfo(List<TeamMatchRecord> groupA) {
+    public static void endGroupStageProgressInfo(List<TeamMatchRecord> groupA, int resultPoint) {
         System.out.println();
         System.out.println("순위" + " | " + " 팀명 " + " | " + "경기수" + " | " + " 승 " + " | " + " 무 " + " | " + " 패 " + " | " + " 득점 " + " | " + " 실점 " + " | " + " 득실차 " + " | " + " 승점");
         System.out.println("   " + 1 + " | " + groupA.get(0).getTeamName() + " |   " + groupA.get(0).getMatchesNum() + "      " + groupA.get(0).getWinMatches() + "      " + groupA.get(0).getDrawMatches() + "      " + groupA.get(0).getLoseMatches() + "      " + groupA.get(0).getScorePoint() + "        " + groupA.get(0).getLosePoint() + "        " + TeamMatchRecord.sumDifferenceBetweenGainsAndLosses(groupA.get(0).getScorePoint(), groupA.get(0).getLosePoint()) + "        " + 0);
