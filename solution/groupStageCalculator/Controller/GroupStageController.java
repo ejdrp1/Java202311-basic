@@ -1,6 +1,5 @@
 package groupStageCalculator.Controller;
 
-
 import groupStageCalculator.View.GroupStageView;
 import groupStageCalculator.Model.TeamMatchRecord;
 
@@ -63,10 +62,9 @@ public class GroupStageController {
             groupA.add(teamMatchRecord);
         }
 //        정보 입력이 모두 끝난 시점
-        for (int i = 0; i < 4; i++) {
-            System.out.println("groupA.get(" + i + ") : " + groupA.get(i));
-        }
-
+//        for (int i = 0; i < 4; i++) {
+//            System.out.println("groupA.get(" + i + ") : " + groupA.get(i));
+//        }
 
         GroupStageView.successRegisterTeamInfo(); // 정보 등록 완료 msg
         groupStageFinallyResult(groupA, teamMatchRecord);
@@ -81,12 +79,14 @@ public class GroupStageController {
         for (int i = 0; i < 4; i++) {
             eachPointResultArr[i] = groupA.get(i).getPoint();
             teamMatchRecord.eachTeamsPoints(eachPointResultArr, groupA);
-            System.out.println("eachPointResultArr[" + i + "] : " + eachPointResultArr[i]);
+//            System.out.println("eachPointResultArr[" + i + "] : " + eachPointResultArr[i]);
         }
 
         for (int i = 0; i < eachPointResultArr.length; i++) {
             for (int j = 0; j < eachPointResultArr.length; j++) {
-                if (eachPointResultArr[j] == groupA.get(j).getPoint()) { // 이 부분 수정
+
+                if (eachPointResultArr[j] == groupA.get(j).getPoint()) { // 이 부분 수정해야 함
+
                     matchingPoint.put(groupA.get(j), j + 1);
                     System.out.println(matchingPoint.get(groupA.get(j))); // 2
                 }
