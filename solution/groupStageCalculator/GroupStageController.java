@@ -57,10 +57,7 @@ public class GroupStageController {
                     Integer.parseInt(inputTeamInfoArr[3]),
                     Integer.parseInt(inputTeamInfoArr[4])
             );
-
             groupA.add(teamMatchRecord);
-            int[] eachTeamsPointArr = {groupA.get(i).getPoint()};
-            teamMatchRecord.eachTeamsPoints(eachTeamsPointArr, groupA);
         }
 //        정보 입력이 모두 끝난 시점
 //        승점 비교하여 순위 재배열 해야함
@@ -70,14 +67,19 @@ public class GroupStageController {
 
 
         GroupStageView.successRegisterTeamInfo(); // 정보 등록 완료 msg
-        groupStageFinallyResult(groupA);
+        groupStageFinallyResult(groupA, teamMatchRecord);
     }
 
-    private void groupStageFinallyResult(List<TeamMatchRecord> groupA) {
+    private void groupStageFinallyResult(List<TeamMatchRecord> groupA, TeamMatchRecord teamMatchRecord) {
         GroupStageView.groupStageFinallyResultInfo(); // 최종 결과 msg
+        int[] eachPointResultArr = new int[4];
+        for (int i = 0; i < 4; i++) {
+            eachPointResultArr[i] = groupA.get(i).getPoint();
 
+            teamMatchRecord.eachTeamsPoints(eachPointResultArr, groupA);
 
-        GroupStageView.endGroupStageProgressInfo(groupA);
+            GroupStageView.endGroupStageProgressInfo(groupA, i, eachPointResultArr);
+        }
     }
 
 
