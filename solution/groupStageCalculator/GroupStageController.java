@@ -80,10 +80,6 @@ public class GroupStageController {
             }
         }
 //        버블 정렬로 인한 오른차순 완료
-        System.out.println("내림차순으로 정렬된 결과:");
-        for (int i = 0; i < eachTeamsPointArr.length; i++) {
-            System.out.println("eachTeamsPointArr[" + i + "] : " + eachTeamsPointArr[i]);
-        }
 
 
 
