@@ -1,6 +1,9 @@
-package groupStageCalculator;
+package groupStageCalculator.View;
+
+import groupStageCalculator.Model.TeamMatchRecord;
 
 import java.util.List;
+import java.util.Map;
 
 public class GroupStageView {
     public static void introProgramInfo() {
@@ -43,8 +46,17 @@ public class GroupStageView {
         System.out.println("순위" + " | " + " 팀명 " + " | " + "경기수" + " | " + " 승 " + " | " + " 무 " + " | " + " 패 " + " | " + " 득점 " + " | " + " 실점 " + " | " + " 득실차 " + " | " + " 승점");
     }
 
-    public static void endGroupStageProgressInfo(List<TeamMatchRecord> groupA, int i, int[] eachPointResultArr) {
-        System.out.println("   " + (i + 1) + " | " + groupA.get(i).getTeamName() + " |   " + groupA.get(i).getMatchesNum() + "      " + groupA.get(i).getWinMatches() + "      " + groupA.get(i).getDrawMatches() + "      " + groupA.get(i).getLoseMatches() + "      " + groupA.get(i).getScorePoint() + "        " + groupA.get(i).getLosePoint() + "        " + groupA.get(i).getDifferenceBetweenGainsAndLosses() + "        " + eachPointResultArr[i]);
+    public static void endGroupStageProgressInfo(List<TeamMatchRecord> groupA, int i) {
+        System.out.println("   " + (i + 1) + " | "
+                + groupA.get(i).getTeamName()
+                + " |   " + groupA.get(i).getMatchesNum()
+                + "      " + groupA.get(i).getWinMatches()
+                + "      " + groupA.get(i).getDrawMatches()
+                + "      " + groupA.get(i).getLoseMatches()
+                + "      " + groupA.get(i).getScorePoint()
+                + "        " + groupA.get(i).getLosePoint()
+                + "        " + groupA.get(i).getDifferenceBetweenGainsAndLosses()
+                + "        " + groupA.get(i).getPoint());
     }
 
 

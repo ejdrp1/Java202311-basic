@@ -1,4 +1,4 @@
-package groupStageCalculator;
+package groupStageCalculator.Model;
 
 import java.util.List;
 

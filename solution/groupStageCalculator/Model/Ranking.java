@@ -1,4 +1,4 @@
-package groupStageCalculator;
+package groupStageCalculator.Model;
 
 public class Ranking {
 

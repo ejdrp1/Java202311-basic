@@ -1,5 +1,8 @@
-package groupStageCalculator;
+package groupStageCalculator.Controller;
 
+
+import groupStageCalculator.View.GroupStageView;
+import groupStageCalculator.Model.TeamMatchRecord;
 
 import java.util.*;
 
@@ -60,10 +63,9 @@ public class GroupStageController {
             groupA.add(teamMatchRecord);
         }
 //        정보 입력이 모두 끝난 시점
-//        승점 비교하여 순위 재배열 해야함
-
-
-//        버블 정렬로 인한 오른차순 완료
+        for (int i = 0; i < 4; i++) {
+            System.out.println("groupA.get(" + i + ") : " + groupA.get(i));
+        }
 
 
         GroupStageView.successRegisterTeamInfo(); // 정보 등록 완료 msg
@@ -71,15 +73,27 @@ public class GroupStageController {
     }
 
     private void groupStageFinallyResult(List<TeamMatchRecord> groupA, TeamMatchRecord teamMatchRecord) {
-        GroupStageView.groupStageFinallyResultInfo(); // 최종 결과 msg
         int[] eachPointResultArr = new int[4];
+        Map<TeamMatchRecord, Integer> matchingPoint = new HashMap<>();
+
+        GroupStageView.groupStageFinallyResultInfo(); // 최종 결과 msg
+
         for (int i = 0; i < 4; i++) {
             eachPointResultArr[i] = groupA.get(i).getPoint();
-
             teamMatchRecord.eachTeamsPoints(eachPointResultArr, groupA);
-
-            GroupStageView.endGroupStageProgressInfo(groupA, i, eachPointResultArr);
+            System.out.println("eachPointResultArr[" + i + "] : " + eachPointResultArr[i]);
         }
+
+        for (int i = 0; i < eachPointResultArr.length; i++) {
+            for (int j = 0; j < eachPointResultArr.length; j++) {
+                if (eachPointResultArr[j] == groupA.get(j).getPoint()) {
+                    matchingPoint.put(groupA.get(j), j + 1);
+                    System.out.println(matchingPoint.get(groupA.get(j))); // 2
+                }
+            }
+            GroupStageView.endGroupStageProgressInfo(groupA, i);
+        }
+
     }
 
 
