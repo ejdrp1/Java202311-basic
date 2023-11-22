@@ -1,6 +1,6 @@
 package groupStageCalculator;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class TeamMatchRecord {
 
@@ -156,7 +156,26 @@ public class TeamMatchRecord {
         return point;
     }
 
-    public void eachTeamsPoints(int[] eachTeamsPoint) {
-
+    public void eachTeamsPoints(int[] eachTeamsPoint, List<TeamMatchRecord> groupA) {
+        for (int i = 0; i < eachTeamsPoint.length; i++) {
+            eachTeamsPoint[i] = groupA.get(i).getPoint();
+        }
+//        버블 정렬 알고리즘을 사용하여 배열 내림차순으로 정렬
+        for (int i = 0; i < eachTeamsPoint.length - 1; i++) {
+            for (int j = 0; j < eachTeamsPoint.length - 1 - i; j++) {
+                if (eachTeamsPoint[j] < eachTeamsPoint[j + 1]) {
+                    // 두 수를 교환
+                    int temp = eachTeamsPoint[j];
+                    eachTeamsPoint[j] = eachTeamsPoint[j + 1];
+                    eachTeamsPoint[j + 1] = temp;
+                }
+            }
+        }
     }
+
+
+
+
+
+
 }

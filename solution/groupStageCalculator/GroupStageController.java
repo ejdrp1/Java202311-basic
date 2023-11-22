@@ -59,28 +59,14 @@ public class GroupStageController {
             );
 
             groupA.add(teamMatchRecord);
+            int[] eachTeamsPointArr = {groupA.get(i).getPoint()};
+            teamMatchRecord.eachTeamsPoints(eachTeamsPointArr, groupA);
         }
 //        정보 입력이 모두 끝난 시점
 //        승점 비교하여 순위 재배열 해야함
-        int[] eachTeamsPointArr = new int[4];
 
-        for (int i = 0; i < eachTeamsPointArr.length; i++) {
-            eachTeamsPointArr[i] = groupA.get(i).getPoint();
-        }
 
-// 버블 정렬 알고리즘을 사용하여 배열 내림차순으로 정렬
-        for (int i = 0; i < eachTeamsPointArr.length - 1; i++) {
-            for (int j = 0; j < eachTeamsPointArr.length - 1 - i; j++) {
-                if (eachTeamsPointArr[j] < eachTeamsPointArr[j + 1]) {
-                    // 두 수를 교환
-                    int temp = eachTeamsPointArr[j];
-                    eachTeamsPointArr[j] = eachTeamsPointArr[j + 1];
-                    eachTeamsPointArr[j + 1] = temp;
-                }
-            }
-        }
 //        버블 정렬로 인한 오른차순 완료
-
 
 
         GroupStageView.successRegisterTeamInfo(); // 정보 등록 완료 msg
