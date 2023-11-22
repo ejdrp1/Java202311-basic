@@ -3,7 +3,6 @@ package groupStageCalculator.View;
 import groupStageCalculator.Model.TeamMatchRecord;
 
 import java.util.List;
-import java.util.Map;
 
 public class GroupStageView {
     public static void introProgramInfo() {

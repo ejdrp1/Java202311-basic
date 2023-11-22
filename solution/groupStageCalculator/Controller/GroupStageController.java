@@ -86,7 +86,7 @@ public class GroupStageController {
 
         for (int i = 0; i < eachPointResultArr.length; i++) {
             for (int j = 0; j < eachPointResultArr.length; j++) {
-                if (eachPointResultArr[j] == groupA.get(j).getPoint()) {
+                if (eachPointResultArr[j] == groupA.get(j).getPoint()) { // 이 부분 수정
                     matchingPoint.put(groupA.get(j), j + 1);
                     System.out.println(matchingPoint.get(groupA.get(j))); // 2
                 }
