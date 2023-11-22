@@ -156,9 +156,7 @@ public class TeamMatchRecord {
         return point;
     }
 
-    public void comparePointCalculator(int[] point) {
-
+    public void eachTeamsPoints(int[] point) {
+        int[] teamPointArr = point;
     }
-
-
 }

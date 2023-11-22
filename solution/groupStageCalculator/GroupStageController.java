@@ -57,12 +57,34 @@ public class GroupStageController {
                     Integer.parseInt(inputTeamInfoArr[3]),
                     Integer.parseInt(inputTeamInfoArr[4])
             );
+
             groupA.add(teamMatchRecord);
         }
 //        정보 입력이 모두 끝난 시점
 //        승점 비교하여 순위 재배열 해야함
 
+        int[] eachTeamsPointArr = new int[4];
 
+        for (int i = 0; i < eachTeamsPointArr.length; i++) {
+            eachTeamsPointArr[i] = groupA.get(i).getPoint();
+        }
+
+//        버블 정렬 알고리즘 사용하여 배열 정렬
+        for (int i = 0; i < eachTeamsPointArr.length - 1; i++) {
+            for (int j = 0; j < eachTeamsPointArr.length - 1 - i; j++) {
+                if (eachTeamsPointArr[j] > eachTeamsPointArr[j + 1]) {
+//                    두 수를 교환
+                    int temp = eachTeamsPointArr[j];
+                    eachTeamsPointArr[j] = eachTeamsPointArr[j + 1];
+                    eachTeamsPointArr[j + 1] = temp;
+                }
+            }
+        }
+
+        for (int i = 0; i < eachTeamsPointArr.length - 1; i++) {
+            System.out.println("eachTeamsPointArr[" + i + "] : " + eachTeamsPointArr[i]);
+            System.out.println("eachTeamsPointArr[" + (eachTeamsPointArr.length - 1) + "] : " + eachTeamsPointArr[eachTeamsPointArr.length - 1]);
+        }
 
 
         GroupStageView.successRegisterTeamInfo(); // 정보 등록 완료 msg
