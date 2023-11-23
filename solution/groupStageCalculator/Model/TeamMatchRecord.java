@@ -186,8 +186,8 @@ public class TeamMatchRecord {
                     TeamMatchRecord temp = groupA.get(j);
                     groupA.set(j, groupA.get(j + 1));
                     groupA.set(j + 1, temp);
+                    matchingPoint.put(groupA.get(j), j + 1);
                 }
-                matchingPoint.put(groupA.get(j), j + 1);
             }
         }
 
