@@ -179,14 +179,28 @@ public class TeamMatchRecord {
 
         for (int i = 0; i < groupA.size(); i++) {
             for (int j = 0; j < groupA.size() - 1; j++) {
-//                승점 배열의 첫번째 index 값과 첫번째 팀의 승점이 다르다면
+
                 if (groupA.get(j).getPoint() < groupA.get(j + 1).getPoint()) {
-//                    첫번째팀과 두번째팀의 순서를 바꾼다.
                     TeamMatchRecord temp = groupA.get(j);
                     groupA.set(j, groupA.get(j + 1));
                     groupA.set(j + 1, temp);
-//                    matchingPoint.put(groupA.get(j), j + 1);
+                } else if (groupA.get(j).getPoint() == groupA.get(j + 1).getPoint()) {
+//                    승점이 같다면 득실차를 비교
+                    if (groupA.get(j).getDifferenceBetweenGainsAndLosses() < groupA.get(j + 1).getDifferenceBetweenGainsAndLosses()) {
+                        TeamMatchRecord temp = groupA.get(j);
+                        groupA.set(j, groupA.get(j + 1));
+                        groupA.set(j + 1, temp);
+                    } else if (groupA.get(j).getDifferenceBetweenGainsAndLosses() == groupA.get(j + 1).getDifferenceBetweenGainsAndLosses()) {
+//                        승점과 득실차가 같다면 득점수를 비교
+                        if (groupA.get(j).getScorePoint() < groupA.get(j + 1).getScorePoint()) {
+                            TeamMatchRecord temp = groupA.get(j);
+                            groupA.set(j, groupA.get(j + 1));
+                            groupA.set(j + 1, temp);
+                        }
+                    }
                 }
+
+
             }
         }
 
