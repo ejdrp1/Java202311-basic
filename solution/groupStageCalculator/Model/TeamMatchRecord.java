@@ -1,7 +1,10 @@
 package groupStageCalculator.Model;
 
+import groupStageCalculator.util.Validator;
+
 import java.util.List;
 import java.util.Map;
+import java.util.Vector;
 
 public class TeamMatchRecord {
 
@@ -164,16 +167,21 @@ public class TeamMatchRecord {
     }
 
     public void inputTeamDataValue(String[] inputTeamInfoArr, TeamMatchRecord teamMatchRecord, List<TeamMatchRecord> groupA) {
-
-        teamMatchRecord.setTeamName(inputTeamInfoArr[0]);
-        teamMatchRecord.setMatchesNum(Integer.parseInt(inputTeamInfoArr[1]));
-        teamMatchRecord.setWinMatches(Integer.parseInt(inputTeamInfoArr[2]));
-        teamMatchRecord.setDrawMatches(Integer.parseInt(inputTeamInfoArr[3]));
-        teamMatchRecord.setLoseMatches(Integer.parseInt(inputTeamInfoArr[4]));
-        teamMatchRecord.setScorePoint(Integer.parseInt(inputTeamInfoArr[5]));
-        teamMatchRecord.setLosePoint(Integer.parseInt(inputTeamInfoArr[6]));
-        teamMatchRecord.sumDifferenceBetweenGainsAndLosses(Integer.parseInt(inputTeamInfoArr[5]), Integer.parseInt(inputTeamInfoArr[6]));
-        teamMatchRecord.pointCalculator(Integer.parseInt(inputTeamInfoArr[2]), Integer.parseInt(inputTeamInfoArr[3]), Integer.parseInt(inputTeamInfoArr[4]));
+        this.teamName = inputTeamInfoArr[0];
+        this.matchesNum = Validator.validateNumber(inputTeamInfoArr[1]);
+        this.winMatches = Validator.validateNumber(inputTeamInfoArr[2]);
+        this.drawMatches = Validator.validateNumber(inputTeamInfoArr[3]);
+        this.loseMatches = Validator.validateNumber(inputTeamInfoArr[4]);
+        this.scorePoint = Validator.validateNumber(inputTeamInfoArr[5]);
+        this.losePoint = Validator.validateNumber(inputTeamInfoArr[6]);
+//        setMatchesNum(Integer.parseInt(inputTeamInfoArr[1]));
+//        setWinMatches(Integer.parseInt(inputTeamInfoArr[2]));
+//        setDrawMatches(Integer.parseInt(inputTeamInfoArr[3]));
+//        setLoseMatches(Integer.parseInt(inputTeamInfoArr[4]));
+//        setScorePoint(Integer.parseInt(inputTeamInfoArr[5]));
+//        setLosePoint(Integer.parseInt(inputTeamInfoArr[6]));
+        sumDifferenceBetweenGainsAndLosses(Integer.parseInt(inputTeamInfoArr[5]), Integer.parseInt(inputTeamInfoArr[6]));
+        pointCalculator(Integer.parseInt(inputTeamInfoArr[2]), Integer.parseInt(inputTeamInfoArr[3]), Integer.parseInt(inputTeamInfoArr[4]));
         groupA.add(teamMatchRecord);
     }
 

@@ -6,6 +6,8 @@ import java.util.*;
 public class GroupStageController {
     Scanner scanner = new Scanner(System.in);
 
+    private final int TEAMS_SIZE = 4;
+
     //    프로그램 시작
     public void startProgram() {
         GroupStageView.introProgramInfo();
@@ -37,14 +39,14 @@ public class GroupStageController {
         List<TeamMatchRecord> groupA = new ArrayList<>();
         TeamMatchRecord teamMatchRecord = null;
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < TEAMS_SIZE; i++) {
             GroupStageView.repeatIntroTeamDataInfo();
             String inputTeamInfo = scanner.next();
             String[] inputTeamInfoArr = inputTeamInfo.split(",");
             teamMatchRecord = new TeamMatchRecord();
             teamMatchRecord.inputTeamDataValue(inputTeamInfoArr, teamMatchRecord, groupA);
         }
-
+        System.out.println(groupA.toString());
 //        입력한 순서대로 list 에 저장
         GroupStageView.successRegisterTeamInfo(); // 정보 등록 완료 msg
         groupStageFinallyResult(groupA, teamMatchRecord);
@@ -52,7 +54,7 @@ public class GroupStageController {
 
     //    입력 완료된 정보 분석
     private void groupStageFinallyResult(List<TeamMatchRecord> groupA, TeamMatchRecord teamMatchRecord) {
-        int[] eachPointResultArr = new int[4];
+        int[] eachPointResultArr = new int[groupA.size()];
         Map<TeamMatchRecord, Integer> matchingPoint = new HashMap<>();
         GroupStageView.groupStageFinallyResultInfo(); // 최종 결과 msg
 //        버블 정렬 시작 (승점 내림차순)
@@ -65,6 +67,7 @@ public class GroupStageController {
         for (int i = 0; i < groupA.size(); i++) {
             GroupStageView.endGroupStageProgressInfo(groupA, i);
         }
+
     }
 
 }
