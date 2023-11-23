@@ -1,6 +1,5 @@
 package groupStageCalculator.Model;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -186,10 +185,16 @@ public class TeamMatchRecord {
                     TeamMatchRecord temp = groupA.get(j);
                     groupA.set(j, groupA.get(j + 1));
                     groupA.set(j + 1, temp);
-                    matchingPoint.put(groupA.get(j), j + 1);
+//                    matchingPoint.put(groupA.get(j), j + 1);
                 }
             }
         }
 
+    }
+
+    public void outputGroupAData(List<TeamMatchRecord> groupA, Map<TeamMatchRecord, Integer> matchingPoint) {
+        for (int i = 0; i < groupA.size(); i++) {
+            matchingPoint.put(groupA.get(i), i + 1);
+        }
     }
 }

@@ -89,6 +89,9 @@ public class GroupStageController {
             }
 //            GroupStageView.endGroupStageProgressInfo(groupA, i);
         }
+
+        teamMatchRecord.outputGroupAData(groupA, matchingPoint);
+
         for (Map.Entry<TeamMatchRecord, Integer> entry : matchingPoint.entrySet()) {
             TeamMatchRecord team = entry.getKey();
             int position = entry.getValue();
