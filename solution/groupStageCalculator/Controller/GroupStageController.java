@@ -62,9 +62,9 @@ public class GroupStageController {
             groupA.add(teamMatchRecord);
         }
 //        정보 입력이 모두 끝난 시점
-        for (int i = 0; i < 4; i++) {
-            System.out.println("groupA.get(" + i + ") : " + groupA.get(i));
-        }
+//        for (int i = 0; i < 4; i++) {
+//            System.out.println("groupA.get(" + i + ") : " + groupA.get(i));
+//        }
 
         GroupStageView.successRegisterTeamInfo(); // 정보 등록 완료 msg
         groupStageFinallyResult(groupA, teamMatchRecord);
@@ -87,19 +87,19 @@ public class GroupStageController {
             for (int j = 0; j < eachPointResultArr.length; j++) {
                 teamMatchRecord.eachTeamEnteredPoint(eachPointResultArr, groupA, matchingPoint);
             }
-//            GroupStageView.endGroupStageProgressInfo(groupA, i);
         }
-
         teamMatchRecord.outputGroupAData(groupA, matchingPoint);
 
-        for (Map.Entry<TeamMatchRecord, Integer> entry : matchingPoint.entrySet()) {
-            TeamMatchRecord team = entry.getKey();
-            int position = entry.getValue();
-            System.out.println("Team: " + team + ", Position: " + position);
+        for (int i = 0; i < groupA.size(); i++) {
+            GroupStageView.endGroupStageProgressInfo(groupA, i);
         }
 
 
-
+//        for (Map.Entry<TeamMatchRecord, Integer> entry : matchingPoint.entrySet()) {
+//            TeamMatchRecord team = entry.getKey();
+//            int position = entry.getValue();
+//            System.out.println("Team: " + team + ", Position: " + position);
+//        }
 
 
     }
