@@ -63,7 +63,7 @@ public class GroupStageController {
         for (int i = 0; i < TEAMS_SIZE; i++) {
             GroupStageView.repeatIntroTeamDataInfo();
             String inputTeamInfo = scanner.next();
-            String[] inputTeamInfoArr = Validator.validateArrayIndex(Arrays.toString(inputTeamInfo.split(",")));
+            String[] inputTeamInfoArr = inputTeamInfo.split(",");
             teamMatchRecord = new TeamMatchRecord();
             teamMatchRecord.inputTeamDataValue(inputTeamInfoArr);
             groupA.add(teamMatchRecord);

@@ -1,5 +1,6 @@
 package groupStageCalculator.util;
 
+import java.io.CharConversionException;
 import java.util.InputMismatchException;
 
 public class Validator {
@@ -39,19 +40,7 @@ public class Validator {
         return convertedNumber;
     }
 
-    public static String[] validateArrayIndex(String validateArrayIndex) {
-        String[] arr;
-        try {
-            arr = new String[validateArrayIndex.length()];
-            for (int i = 0; i <= validateArrayIndex.length(); i++) {
-                arr[i] = String.valueOf(i);
-            }
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("ArrayIndexOutOfBoundsException");
-            throw new ArrayIndexOutOfBoundsException();
-        }
-        return arr;
-    }
+
 
 
 }
