@@ -94,15 +94,16 @@ public class GroupStageController {
             GroupStageView.endGroupStageProgressInfo(groupA, i);
         }
 
-
-//        for (Map.Entry<TeamMatchRecord, Integer> entry : matchingPoint.entrySet()) {
-//            TeamMatchRecord team = entry.getKey();
-//            int position = entry.getValue();
-//            System.out.println("Team: " + team + ", Position: " + position);
-//        }
-
-
     }
+
+
+
+
+
+
+
+
+
 
 
 }
