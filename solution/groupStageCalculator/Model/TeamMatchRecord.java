@@ -1,6 +1,8 @@
 package groupStageCalculator.Model;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 public class TeamMatchRecord {
 
@@ -174,4 +176,20 @@ public class TeamMatchRecord {
     }
 
 
+    public void eachTeamEnteredPoint(int[] eachPointResultArr, List<TeamMatchRecord> groupA, Map<TeamMatchRecord, Integer> matchingPoint) {
+
+        for (int i = 0; i < groupA.size(); i++) {
+            for (int j = 0; j < groupA.size() - 1; j++) {
+//                승점 배열의 첫번째 index 값과 첫번째 팀의 승점이 다르다면
+                if (groupA.get(j).getPoint() < groupA.get(j + 1).getPoint()) {
+//                    첫번째팀과 두번째팀의 순서를 바꾼다.
+                    TeamMatchRecord temp = groupA.get(j);
+                    groupA.set(j, groupA.get(j + 1));
+                    groupA.set(j + 1, temp);
+                }
+                matchingPoint.put(groupA.get(j), j + 1);
+            }
+        }
+
+    }
 }

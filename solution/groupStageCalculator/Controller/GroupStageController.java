@@ -62,9 +62,9 @@ public class GroupStageController {
             groupA.add(teamMatchRecord);
         }
 //        정보 입력이 모두 끝난 시점
-//        for (int i = 0; i < 4; i++) {
-//            System.out.println("groupA.get(" + i + ") : " + groupA.get(i));
-//        }
+        for (int i = 0; i < 4; i++) {
+            System.out.println("groupA.get(" + i + ") : " + groupA.get(i));
+        }
 
         GroupStageView.successRegisterTeamInfo(); // 정보 등록 완료 msg
         groupStageFinallyResult(groupA, teamMatchRecord);
@@ -76,23 +76,28 @@ public class GroupStageController {
 
         GroupStageView.groupStageFinallyResultInfo(); // 최종 결과 msg
 
+//        버블 정렬 시작 (승점 내림차순)
         for (int i = 0; i < 4; i++) {
             eachPointResultArr[i] = groupA.get(i).getPoint();
             teamMatchRecord.eachTeamsPoints(eachPointResultArr, groupA);
-//            System.out.println("eachPointResultArr[" + i + "] : " + eachPointResultArr[i]);
         }
 
+//
         for (int i = 0; i < eachPointResultArr.length; i++) {
             for (int j = 0; j < eachPointResultArr.length; j++) {
-
-                if (eachPointResultArr[j] == groupA.get(j).getPoint()) {
-
-                    matchingPoint.put(groupA.get(j), j + 1);
-                    System.out.println(matchingPoint.get(groupA.get(j))); // 2
-                }
+                teamMatchRecord.eachTeamEnteredPoint(eachPointResultArr, groupA, matchingPoint);
             }
-            GroupStageView.endGroupStageProgressInfo(groupA, i);
+//            GroupStageView.endGroupStageProgressInfo(groupA, i);
         }
+        for (Map.Entry<TeamMatchRecord, Integer> entry : matchingPoint.entrySet()) {
+            TeamMatchRecord team = entry.getKey();
+            int position = entry.getValue();
+            System.out.println("Team: " + team + ", Position: " + position);
+        }
+
+
+
+
 
     }
 
