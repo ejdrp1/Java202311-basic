@@ -157,58 +157,103 @@ public class TeamMatchRecord {
         return point;
     }
 
-    public void eachTeamsPoints(int[] eachTeamsPoint, List<TeamMatchRecord> groupA) {
-        for (int i = 0; i < eachTeamsPoint.length; i++) {
-            eachTeamsPoint[i] = groupA.get(i).getPoint();
-        }
-//        버블 정렬 알고리즘을 사용하여 배열 내림차순으로 정렬
-        for (int i = 0; i < eachTeamsPoint.length - 1; i++) {
-            for (int j = 0; j < eachTeamsPoint.length - 1 - i; j++) {
-                if (eachTeamsPoint[j] < eachTeamsPoint[j + 1]) {
-                    // 두 수를 교환
-                    int temp = eachTeamsPoint[j];
-                    eachTeamsPoint[j] = eachTeamsPoint[j + 1];
-                    eachTeamsPoint[j + 1] = temp;
-                }
-            }
-        }
-    }
-
-
-    public void eachTeamEnteredPoint(int[] eachPointResultArr, List<TeamMatchRecord> groupA, Map<TeamMatchRecord, Integer> matchingPoint) {
-
-        for (int i = 0; i < groupA.size(); i++) {
-            for (int j = 0; j < groupA.size() - 1; j++) {
-
-                if (groupA.get(j).getPoint() < groupA.get(j + 1).getPoint()) {
-                    TeamMatchRecord temp = groupA.get(j);
-                    groupA.set(j, groupA.get(j + 1));
-                    groupA.set(j + 1, temp);
-                } else if (groupA.get(j).getPoint() == groupA.get(j + 1).getPoint()) {
-//                    승점이 같다면 득실차를 비교
-                    if (groupA.get(j).getDifferenceBetweenGainsAndLosses() < groupA.get(j + 1).getDifferenceBetweenGainsAndLosses()) {
-                        TeamMatchRecord temp = groupA.get(j);
-                        groupA.set(j, groupA.get(j + 1));
-                        groupA.set(j + 1, temp);
-                    } else if (groupA.get(j).getDifferenceBetweenGainsAndLosses() == groupA.get(j + 1).getDifferenceBetweenGainsAndLosses()) {
-//                        승점과 득실차가 같다면 득점수를 비교
-                        if (groupA.get(j).getScorePoint() < groupA.get(j + 1).getScorePoint()) {
-                            TeamMatchRecord temp = groupA.get(j);
-                            groupA.set(j, groupA.get(j + 1));
-                            groupA.set(j + 1, temp);
-                        }
-                    }
-                }
-
-
-            }
-        }
-
-    }
-
     public void outputGroupAData(List<TeamMatchRecord> groupA, Map<TeamMatchRecord, Integer> matchingPoint) {
         for (int i = 0; i < groupA.size(); i++) {
             matchingPoint.put(groupA.get(i), i + 1);
         }
     }
+
+    public void inputTeamDataValue(String[] inputTeamInfoArr, TeamMatchRecord teamMatchRecord, List<TeamMatchRecord> groupA) {
+
+        teamMatchRecord.setTeamName(inputTeamInfoArr[0]);
+        teamMatchRecord.setMatchesNum(Integer.parseInt(inputTeamInfoArr[1]));
+        teamMatchRecord.setWinMatches(Integer.parseInt(inputTeamInfoArr[2]));
+        teamMatchRecord.setDrawMatches(Integer.parseInt(inputTeamInfoArr[3]));
+        teamMatchRecord.setLoseMatches(Integer.parseInt(inputTeamInfoArr[4]));
+        teamMatchRecord.setScorePoint(Integer.parseInt(inputTeamInfoArr[5]));
+        teamMatchRecord.setLosePoint(Integer.parseInt(inputTeamInfoArr[6]));
+        teamMatchRecord.sumDifferenceBetweenGainsAndLosses(Integer.parseInt(inputTeamInfoArr[5]), Integer.parseInt(inputTeamInfoArr[6]));
+        teamMatchRecord.pointCalculator(Integer.parseInt(inputTeamInfoArr[2]), Integer.parseInt(inputTeamInfoArr[3]), Integer.parseInt(inputTeamInfoArr[4]));
+        groupA.add(teamMatchRecord);
+    }
+
+    public void sortingTeamPoints(TeamMatchRecord teamMatchRecord, int[] eachPointResultArr, List<TeamMatchRecord> groupA) {
+        for (int i = 0; i < 4; i++) {
+            eachPointResultArr[i] = groupA.get(i).getPoint();
+            eachTeamsPoints(eachPointResultArr, groupA);
+        }
+    }
+
+    public void eachTeamsPoints(int[] eachTeamsPoint, List<TeamMatchRecord> groupA) {
+        for (int i = 0; i < eachTeamsPoint.length; i++) {
+            eachTeamsPoint[i] = groupA.get(i).getPoint();
+        }
+//        버블 정렬 알고리즘을 사용하여 배열 내림차순으로 정렬
+        sortingPoint(eachTeamsPoint);
+    }
+
+    private void sortingPoint(int[] eachTeamsPoint) {
+        for (int i = 0; i < eachTeamsPoint.length - 1; i++) {
+            for (int j = 0; j < eachTeamsPoint.length - 1 - i; j++) {
+                sortingEachTeamsPoint(eachTeamsPoint, j);
+            }
+        }
+    }
+
+    private void sortingEachTeamsPoint(int[] eachTeamsPoint, int j) {
+        if (eachTeamsPoint[j] < eachTeamsPoint[j + 1]) {
+            // 두 수를 교환
+            int temp = eachTeamsPoint[j];
+            eachTeamsPoint[j] = eachTeamsPoint[j + 1];
+            eachTeamsPoint[j + 1] = temp;
+        }
+    }
+
+    public void sortingTeamAllInfo(int[] eachPointResultArr, List<TeamMatchRecord> groupA, Map<TeamMatchRecord, Integer> matchingPoint) {
+        for (int i = 0; i < eachPointResultArr.length; i++) {
+            for (int j = 0; j < eachPointResultArr.length; j++) {
+                eachTeamEnteredPoint(eachPointResultArr, groupA, matchingPoint);
+            }
+        }
+    }
+
+    public void eachTeamEnteredPoint(int[] eachPointResultArr, List<TeamMatchRecord> groupA, Map<TeamMatchRecord, Integer> matchingPoint) {
+        for (int i = 0; i < groupA.size(); i++) {
+            for (int j = 0; j < groupA.size() - 1; j++) {
+//                팀의 승점 비교
+                compareResultTeamPoint(groupA, j);
+            }
+        }
+    }
+
+    private void compareResultTeamPoint(List<TeamMatchRecord> groupA, int j) {
+        if (groupA.get(j).getPoint() < groupA.get(j + 1).getPoint()) {
+            TeamMatchRecord temp = groupA.get(j);
+            groupA.set(j, groupA.get(j + 1));
+            groupA.set(j + 1, temp);
+        } else if (groupA.get(j).getPoint() == groupA.get(j + 1).getPoint()) {
+//                    승점이 같다면 득실차를 비교
+            compareTeamDifferenceBetweenGainsAndLosses(groupA, j);
+        }
+    }
+
+    private void compareTeamDifferenceBetweenGainsAndLosses(List<TeamMatchRecord> groupA, int j) {
+        if (groupA.get(j).getDifferenceBetweenGainsAndLosses() < groupA.get(j + 1).getDifferenceBetweenGainsAndLosses()) {
+            TeamMatchRecord temp = groupA.get(j);
+            groupA.set(j, groupA.get(j + 1));
+            groupA.set(j + 1, temp);
+        } else if (groupA.get(j).getDifferenceBetweenGainsAndLosses() == groupA.get(j + 1).getDifferenceBetweenGainsAndLosses()) {
+//            승점과 득실차가 같다면 득점수를 비교
+            compareTeamPoint(groupA, j);
+        }
+    }
+
+    private void compareTeamPoint(List<TeamMatchRecord> groupA, int j) {
+        if (groupA.get(j).getScorePoint() < groupA.get(j + 1).getScorePoint()) {
+            TeamMatchRecord temp = groupA.get(j);
+            groupA.set(j, groupA.get(j + 1));
+            groupA.set(j + 1, temp);
+        }
+    }
+
 }
