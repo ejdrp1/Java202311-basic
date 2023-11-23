@@ -62,10 +62,6 @@ public class GroupStageController {
             groupA.add(teamMatchRecord);
         }
 //        정보 입력이 모두 끝난 시점
-//        for (int i = 0; i < 4; i++) {
-//            System.out.println("groupA.get(" + i + ") : " + groupA.get(i));
-//        }
-
         GroupStageView.successRegisterTeamInfo(); // 정보 등록 완료 msg
         groupStageFinallyResult(groupA, teamMatchRecord);
     }
