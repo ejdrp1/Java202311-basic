@@ -14,7 +14,25 @@ public class GroupStageController {
     //    프로그램 시작
     public void startProgram() {
         GroupStageView.introProgramInfo();
+        continueProgram();
         selectProgramStart();
+    }
+
+    private void continueProgram() {
+        GroupStageView.continueProgramInfo();
+        int selectContinueNum = scanner.nextInt();
+        selectContinueProgramNum(selectContinueNum);
+    }
+
+    private void selectContinueProgramNum(int selectContinueNum) {
+        switch (Validator.validateNumber(selectContinueNum)) {
+            case 1:
+                inputTeamData();
+                break;
+            case 2:
+                GroupStageView.endProgramInfo();
+                break;
+        }
     }
 
     //    프로그램 시작 및 종료 번호 입력
@@ -45,7 +63,7 @@ public class GroupStageController {
         for (int i = 0; i < TEAMS_SIZE; i++) {
             GroupStageView.repeatIntroTeamDataInfo();
             String inputTeamInfo = scanner.next();
-            String[] inputTeamInfoArr = inputTeamInfo.split(",");
+            String[] inputTeamInfoArr = Validator.validateArrayIndex(Arrays.toString(inputTeamInfo.split(",")));
             teamMatchRecord = new TeamMatchRecord();
             teamMatchRecord.inputTeamDataValue(inputTeamInfoArr);
             groupA.add(teamMatchRecord);

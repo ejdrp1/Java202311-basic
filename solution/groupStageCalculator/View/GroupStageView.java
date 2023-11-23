@@ -14,7 +14,13 @@ public class GroupStageView {
 
     public static void selectProgramStartNumInfo() {
         System.out.println();
-        System.out.println("1.시작하기 2.종료하기");
+        System.out.println("1.이어하기 2.종료하기");
+        System.out.print("입력 : ");
+    }
+
+    public static void continueProgramInfo() {
+        System.out.println();
+        System.out.println("1.다시하기 2.종료하기");
         System.out.print("입력 : ");
     }
 
