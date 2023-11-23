@@ -1,6 +1,9 @@
 package groupStageCalculator.Controller;
+
 import groupStageCalculator.View.GroupStageView;
 import groupStageCalculator.Model.TeamMatchRecord;
+import groupStageCalculator.util.Validator;
+
 import java.util.*;
 
 public class GroupStageController {
@@ -23,7 +26,7 @@ public class GroupStageController {
 
     //    1.시작 2.종료
     private void selectProgramStartNum(int selectStartNum) {
-        switch (selectStartNum) {
+        switch (Validator.validateNumber(selectStartNum)) {
             case 1:
                 inputTeamData();
                 break;
@@ -44,9 +47,9 @@ public class GroupStageController {
             String inputTeamInfo = scanner.next();
             String[] inputTeamInfoArr = inputTeamInfo.split(",");
             teamMatchRecord = new TeamMatchRecord();
-            teamMatchRecord.inputTeamDataValue(inputTeamInfoArr, teamMatchRecord, groupA);
+            teamMatchRecord.inputTeamDataValue(inputTeamInfoArr);
+            groupA.add(teamMatchRecord);
         }
-        System.out.println(groupA.toString());
 //        입력한 순서대로 list 에 저장
         GroupStageView.successRegisterTeamInfo(); // 정보 등록 완료 msg
         groupStageFinallyResult(groupA, teamMatchRecord);
@@ -58,9 +61,9 @@ public class GroupStageController {
         Map<TeamMatchRecord, Integer> matchingPoint = new HashMap<>();
         GroupStageView.groupStageFinallyResultInfo(); // 최종 결과 msg
 //        버블 정렬 시작 (승점 내림차순)
-        teamMatchRecord.sortingTeamPoints(teamMatchRecord, eachPointResultArr, groupA);
+        teamMatchRecord.sortingTeamPoints(eachPointResultArr, groupA);
 //        각 팀의 승점을 비교하여 승점순으로 재배치
-        teamMatchRecord.sortingTeamAllInfo(eachPointResultArr, groupA, matchingPoint);
+        teamMatchRecord.sortingTeamAllInfo(eachPointResultArr, groupA);
 //        map 으로 출력
         teamMatchRecord.outputGroupAData(groupA, matchingPoint);
 //        최종 결과 output
