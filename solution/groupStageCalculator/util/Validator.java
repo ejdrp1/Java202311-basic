@@ -40,7 +40,7 @@ public class Validator {
         return convertedNumber;
     }
 
-
+//    팀 입력 문자열 공백 검증식 필요
 
 
 }
