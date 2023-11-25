@@ -42,6 +42,7 @@ public class Validator {
 
 //    팀 입력 문자열 공백 검증식 필요
     public static String validateWordSpacing() {
+
         return "";
     }
 
