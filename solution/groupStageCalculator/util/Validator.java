@@ -2,10 +2,12 @@ package groupStageCalculator.util;
 
 import java.io.CharConversionException;
 import java.util.InputMismatchException;
+import java.util.Stack;
 
 public class Validator {
 
     private final int TEAMS_SIZE = 4;
+    private static final int TEAMS_INFO_SIZE = 6;
 
     public static int validateNumber(int validateNum) {
         int convertedNumber;
@@ -40,16 +42,29 @@ public class Validator {
         return convertedNumber;
     }
 
+//    이거 문제있음 (공백을 입력해도 ArrayIndexOutOfBoundsException 이게 우선으로 튀어나옴)
     public static String validateWordSpacing(String validateSpacingWord) {
+        String convertedSpacingWord;
         if (validateSpacingWord.isBlank()) {
             System.out.println("IllegalArgumentException");
             throw new IllegalArgumentException();
+        } else {
+            convertedSpacingWord = validateSpacingWord;
         }
-        return validateSpacingWord;
+        return convertedSpacingWord;
     }
 
-//    인덱스 길이 검증 메서드
-//    ArrayIndexOutOfBoundsException
+    public static String[] validateIndexLength(String[] validateIndexLength) {
+        String[] convertedIndexLength;
+        for (int i = 0; i < validateIndexLength.length; i++) {
+            if (validateIndexLength.length < TEAMS_INFO_SIZE || TEAMS_INFO_SIZE < validateIndexLength.length) {
+                System.out.println("ArrayIndexOutOfBoundsException");
+                throw new ArrayIndexOutOfBoundsException();
+            }
+        }
+        convertedIndexLength = validateIndexLength;
 
+        return convertedIndexLength;
+    }
 
 }
