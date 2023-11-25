@@ -163,6 +163,12 @@ public class TeamMatchRecord {
         }
     }
 
+    public String[] inputTeamDataInfo(Scanner scanner) {
+        String inputTeamInfo = Validator.validateWordSpacing(scanner.next());
+        String[] inputTeamInfoArr = inputTeamInfo.split(",");
+        return inputTeamInfoArr;
+    }
+
     public void inputTeamDataValue(String[] inputTeamInfoArr) {
         this.teamName = Validator.validateSentence(inputTeamInfoArr[0]);
         this.matchesNum = Validator.validateNumber(inputTeamInfoArr[1]);

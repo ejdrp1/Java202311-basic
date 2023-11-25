@@ -40,11 +40,16 @@ public class Validator {
         return convertedNumber;
     }
 
-//    팀 입력 문자열 공백 검증식 필요
-    public static String validateWordSpacing() {
-
-        return "";
+    public static String validateWordSpacing(String validateSpacingWord) {
+        if (validateSpacingWord.isBlank()) {
+            System.out.println("IllegalArgumentException");
+            throw new IllegalArgumentException();
+        }
+        return validateSpacingWord;
     }
+
+//    인덱스 길이 검증 메서드
+//    ArrayIndexOutOfBoundsException
 
 
 }
