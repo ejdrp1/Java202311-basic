@@ -41,6 +41,7 @@ public class Validator {
         return convertedNumber;
     }
 
+
     //    이거 문제있음 (공백을 입력해도 ArrayIndexOutOfBoundsException 이게 우선으로 튀어나옴)
     public static String validateWordSpacing(String validateSpacingWord) {
         String convertedSpacingWord;
