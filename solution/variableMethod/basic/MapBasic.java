@@ -24,6 +24,8 @@ public class MapBasic {
             System.out.println("key : " + key + ", value : " + map.get(key));
         }
 
+//        Map 안의 모든 요소 삭제
+        map.clear();
     }
 
 
