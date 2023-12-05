@@ -19,7 +19,6 @@ public class MapBasic {
         map.put("램파드", 18);
         map.put("체흐", 33);
 
-
         for (String key : map.keySet()) {
             System.out.println("key : " + key + ", value : " + map.get(key));
         }
