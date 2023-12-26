@@ -25,6 +25,7 @@ public class MapBasic {
 
 //        Map 안의 모든 요소 삭제
         map.clear();
+
     }
 
 
